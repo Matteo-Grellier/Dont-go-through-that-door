@@ -6,7 +6,7 @@ func _ready():
 	#add_exception(owner)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if is_colliding():
 		
 		var collider = get_collider() as Node3D

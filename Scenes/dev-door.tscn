@@ -42,7 +42,6 @@ mesh = SubResource("PlaneMesh_j2kdx")
 shape = SubResource("WorldBoundaryShape3D_0pdye")
 
 [node name="Door" parent="." instance=ExtResource("1_v22jn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.954805, 2.13324)
