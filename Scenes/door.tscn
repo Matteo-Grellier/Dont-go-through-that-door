@@ -5,7 +5,8 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x2v0l"]
 resource_name = "porte"
 cull_mode = 2
-albedo_color = Color(0.443173, 0.265853, 0.121102, 1)
+diffuse_mode = 3
+albedo_color = Color(0.443137, 0.266667, 0.121569, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_skt2h"]
 _surfaces = [{
@@ -163,8 +164,14 @@ script = ExtResource("1_h4avv")
 [node name="DoorPanel" type="StaticBody3D" parent="." groups=["Interactable"]]
 transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, 0.5, 0, -0.5, -2.18557e-08, -0.489711, 0.0230028, 0)
 
+[node name="PanelMesh" type="MeshInstance3D" parent="DoorPanel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0239604, 0.00175887, 0.131196)
+mesh = SubResource("ArrayMesh_dnslm")
+skeleton = NodePath("")
+
 [node name="Cube" type="MeshInstance3D" parent="DoorPanel"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0239604, 0.00175887, 0.131196)
+visible = false
 mesh = SubResource("ArrayMesh_dnslm")
 skeleton = NodePath("")
 
