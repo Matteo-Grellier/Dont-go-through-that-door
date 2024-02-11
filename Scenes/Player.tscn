@@ -1,11 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://13lmgnknxpgw"]
+[gd_scene load_steps=8 format=3 uid="uid://13lmgnknxpgw"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_kg52k"]
 [ext_resource type="PackedScene" uid="uid://ojxu7sy43qkf" path="res://Scenes/interactor.tscn" id="2_pnebu"]
+[ext_resource type="Shader" path="res://Ressources/Shaders/sobelFilter.gdshader" id="3_gse5d"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_kkgcd"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0oq0b"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jx0ff"]
+render_priority = 0
+shader = ExtResource("3_gse5d")
+shader_parameter/shadow_color = Color(0, 0, 0, 1)
+shader_parameter/shadow_thickness = 1.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_a8lnb"]
+material = SubResource("ShaderMaterial_jx0ff")
+size = Vector2(1.5, 1)
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_kg52k")
@@ -22,3 +33,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.640663, -0.190039)
 [node name="Camera3D" type="Camera3D" parent="Neck"]
 
 [node name="Interactor" parent="Neck/Camera3D" instance=ExtResource("2_pnebu")]
+
+[node name="SobelFilter" type="MeshInstance3D" parent="Neck/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.37109)
+mesh = SubResource("QuadMesh_a8lnb")
+skeleton = NodePath("../..")

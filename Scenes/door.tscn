@@ -162,7 +162,7 @@ shadow_mesh = SubResource("ArrayMesh_f5sw7")
 script = ExtResource("1_h4avv")
 
 [node name="DoorPanel" type="StaticBody3D" parent="." groups=["Interactable"]]
-transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, 0.5, 0, -0.5, -2.18557e-08, -0.489711, 0.0230028, 0)
+transform = Transform3D(0.6, 0, 0, 0, -2.62268e-08, 0.6, 0, -0.6, -2.62268e-08, -0.591716, 0.016747, 0)
 
 [node name="PanelMesh" type="MeshInstance3D" parent="DoorPanel"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0239604, 0.00175887, 0.131196)
@@ -190,6 +190,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.970078, -2.60065e-08, 2.143
 shape = SubResource("BoxShape3D_1uwab")
 
 [node name="Cube_002" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.605, 0, 0, 0, -2.18557e-08, 0.071, 0, -0.5, -3.10351e-09, 0, 0, 0)
+transform = Transform3D(0.726, 0, 0, 0, -2.62268e-08, 0.085, 0, -0.6, -3.71547e-09, 0, 0, 0)
 mesh = SubResource("ArrayMesh_rl0u7")
 skeleton = NodePath("")
