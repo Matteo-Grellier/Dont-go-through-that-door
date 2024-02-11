@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://ddtok7ckidi7k"]
+[gd_scene load_steps=8 format=3 uid="uid://ddtok7ckidi7k"]
 
 [ext_resource type="PackedScene" uid="uid://bb1m8i83e1p7s" path="res://Scenes/door.tscn" id="1_v22jn"]
-[ext_resource type="Script" path="res://Scenes/CharacterBody3D.gd" id="2_agrd8"]
-[ext_resource type="PackedScene" uid="uid://ojxu7sy43qkf" path="res://Scenes/interactor.tscn" id="3_onsxa"]
+[ext_resource type="PackedScene" uid="uid://13lmgnknxpgw" path="res://Scenes/Player.tscn" id="4_21bq6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1lfa8"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -20,8 +19,6 @@ glow_enabled = true
 [sub_resource type="PlaneMesh" id="PlaneMesh_j2kdx"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_0pdye"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x6f8b"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -43,16 +40,5 @@ shape = SubResource("WorldBoundaryShape3D_0pdye")
 
 [node name="Door" parent="." instance=ExtResource("1_v22jn")]
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.954805, 2.13324)
-script = ExtResource("2_agrd8")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
-shape = SubResource("CapsuleShape3D_x6f8b")
-
-[node name="Node3D" type="Node3D" parent="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.645871, 0)
-
-[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/Node3D"]
-
-[node name="Interactor" parent="CharacterBody3D/Node3D" instance=ExtResource("3_onsxa")]
+[node name="Player" parent="." instance=ExtResource("4_21bq6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.14249, 1.22577)
