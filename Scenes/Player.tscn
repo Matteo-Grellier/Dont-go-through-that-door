@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bkyncuprxmv7r"]
+[gd_scene load_steps=5 format=3 uid="uid://13lmgnknxpgw"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_kg52k"]
+[ext_resource type="PackedScene" uid="uid://ojxu7sy43qkf" path="res://Scenes/interactor.tscn" id="2_pnebu"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_kkgcd"]
 
@@ -16,6 +17,8 @@ mesh = SubResource("CapsuleMesh_kkgcd")
 shape = SubResource("CapsuleShape3D_0oq0b")
 
 [node name="Neck" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.640663, -0.190039)
 
 [node name="Camera3D" type="Camera3D" parent="Neck"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.752551, -0.195154)
+
+[node name="Interactor" parent="Neck/Camera3D" instance=ExtResource("2_pnebu")]
