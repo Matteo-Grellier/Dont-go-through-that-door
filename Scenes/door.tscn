@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://bb1m8i83e1p7s"]
+
+[ext_resource type="Script" path="res://Scripts/door.gd" id="1_h4avv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8l0ro"]
+diffuse_mode = 3
+albedo_color = Color(1, 0.498039, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ltxr5"]
+material = SubResource("StandardMaterial3D_8l0ro")
+size = Vector3(1, 2, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p03nu"]
+size = Vector3(1, 2, 0.1)
+
+[node name="Door" type="Node3D"]
+script = ExtResource("1_h4avv")
+
+[node name="DoorPanel" type="StaticBody3D" parent="." groups=["Interactable"]]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="DoorPanel"]
+mesh = SubResource("BoxMesh_ltxr5")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DoorPanel"]
+shape = SubResource("BoxShape3D_p03nu")
