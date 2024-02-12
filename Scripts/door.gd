@@ -2,7 +2,7 @@ class_name Door
 extends Node3D
 
 @export var default_color := Color(0.44, 0.26, 0.12)
-@export var is_right_door := false
+@export var is_good := false
 
 signal closing_behind
 signal closed_behind
