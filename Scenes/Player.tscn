@@ -18,7 +18,7 @@ shader_parameter/shadow_thickness = 1.0
 material = SubResource("ShaderMaterial_jx0ff")
 size = Vector2(1.5, 1)
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["Player"]]
 script = ExtResource("1_kg52k")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

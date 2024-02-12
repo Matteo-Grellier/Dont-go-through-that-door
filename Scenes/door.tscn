@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bb1m8i83e1p7s"]
+[gd_scene load_steps=16 format=3 uid="uid://bb1m8i83e1p7s"]
 
 [ext_resource type="Script" path="res://Scripts/door.gd" id="1_h4avv"]
 
@@ -158,6 +158,12 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_f5sw7")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ry2v8"]
+size = Vector3(1.43005, 0.506653, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wa7rk"]
+size = Vector3(0.95697, 0.571777, 2.67334)
+
 [node name="Door" type="Node3D"]
 script = ExtResource("1_h4avv")
 
@@ -193,3 +199,19 @@ shape = SubResource("BoxShape3D_1uwab")
 transform = Transform3D(0.726, 0, 0, 0, -2.62268e-08, 0.085, 0, -0.6, -3.71547e-09, 0, 0, 0)
 mesh = SubResource("ArrayMesh_rl0u7")
 skeleton = NodePath("")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0167847, 1.39865, -2.08845)
+shape = SubResource("BoxShape3D_ry2v8")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.22198, 1.4511, -1.24701)
+shape = SubResource("BoxShape3D_wa7rk")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.17075, 1.46551, -1.24513)
+shape = SubResource("BoxShape3D_wa7rk")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
