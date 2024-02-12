@@ -1,0 +1,79 @@
+[gd_scene load_steps=6 format=3 uid="uid://c8epgk10rthys"]
+
+[ext_resource type="PackedScene" uid="uid://bb1m8i83e1p7s" path="res://Scenes/door.tscn" id="2_ieb7m"]
+[ext_resource type="PackedScene" uid="uid://b4sh3jah4sy0a" path="res://Ressources/Models/speaker.glb" id="3_bplap"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_udoeg"]
+size = Vector2(15, 15)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bqfti"]
+size = Vector3(15, 0, 15)
+
+[sub_resource type="BoxMesh" id="BoxMesh_walp5"]
+size = Vector3(16, 0.1, 16)
+
+[node name="SpawnRoom" type="Node3D"]
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("PlaneMesh_udoeg")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("BoxShape3D_bqfti")
+
+[node name="Ceiling" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.9, 0)
+mesh = SubResource("BoxMesh_walp5")
+
+[node name="WallsCSG" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="WallsCSG"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.446, 2, 0)
+size = Vector3(15, 4, 0.1)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="WallsCSG"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.446, 2, 0)
+size = Vector3(15, 4, 0.1)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="WallsCSG"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 7.446)
+size = Vector3(15, 4, 0.1)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="WallsCSG"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -7.446)
+size = Vector3(15, 4, 0.1)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="WallsCSG"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1.27, -7.446)
+operation = 2
+size = Vector3(1.44031, 2.7011, 0.203308)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="WallsCSG"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1.27, -7.446)
+operation = 2
+size = Vector3(1.44031, 2.7011, 0.203308)
+
+[node name="Door" parent="." instance=ExtResource("2_ieb7m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -7.453)
+default_color = Color(0.976471, 0.878431, 0.815686, 1)
+
+[node name="Door2" parent="." instance=ExtResource("2_ieb7m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -7.453)
+default_color = Color(0.976471, 0.878431, 0.815686, 1)
+
+[node name="speaker" parent="." instance=ExtResource("3_bplap")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 2.8, -7.213)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 3.91259, 0.585903)
+spot_range = 13.704
+spot_angle = 55.91
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -4.02913, 4.45596, -6.89292)
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 4.01954, 4.48226, -6.89292)
