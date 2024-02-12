@@ -54,6 +54,7 @@ func close_door():
 	tween = get_tree().create_tween()
 	
 	tween.tween_property($DoorPanel, "rotation:y", 0, .8)
+	tween.parallel().tween_property($DoorPanel/DoorHandle, "rotation:z", deg_to_rad(0), .3)
 
 
 func _on_area_3d_body_entered(body: Node3D):
