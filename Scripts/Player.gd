@@ -41,7 +41,3 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, speed)
 
 	move_and_slide()
-
-
-func _on_door_closed_behind():
-	print("test")

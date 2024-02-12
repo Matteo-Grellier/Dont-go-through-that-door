@@ -32,10 +32,8 @@ func change_door_state():
 	is_opened = !is_opened
 
 	if is_opened:
-		print("je suis ici OUVERT")
 		open_door()
 	else:
-		print("je suis ici FERME")
 		close_door()
 
 func open_door():
