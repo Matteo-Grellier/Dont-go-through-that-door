@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://cs1db3gwnm3pf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5xxfm"]
+albedo_color = Color(0.964706, 0.454902, 0.968627, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0lqjc"]
+material = SubResource("StandardMaterial3D_5xxfm")
+size = Vector3(20, 1, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ofvwc"]
+size = Vector3(20, 1, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_swvxm"]
+size = Vector3(20.1248, 2.57812, 1)
+
+[node name="Room1" type="Node3D" groups=["Room"]]
+
+[node name="Floor" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0895, 0, 9.65312)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("BoxMesh_0lqjc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("BoxShape3D_ofvwc")
+
+[node name="ThirdRoomTrigger" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0895, 0, 9.65312)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ThirdRoomTrigger"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0133057, 2.5128, -8.04446)
+shape = SubResource("BoxShape3D_swvxm")
