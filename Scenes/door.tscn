@@ -207,11 +207,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0167847, 1.39865, -2.08845)
 shape = SubResource("BoxShape3D_ry2v8")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.22198, 1.4511, -1.24701)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.22198, 1.4511, -1.46403)
 shape = SubResource("BoxShape3D_wa7rk")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.17075, 1.46551, -1.24513)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.17075, 1.46551, -1.46215)
 shape = SubResource("BoxShape3D_wa7rk")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

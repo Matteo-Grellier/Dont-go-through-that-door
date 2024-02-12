@@ -3,13 +3,15 @@ extends Node3D
 
 @export var default_color := Color(0.44, 0.26, 0.12)
 
+signal closing_behind
+signal closed_behind
+
 var is_opened: bool = false
 var is_looked_at: bool = false
 var is_closed_behind: bool = false
 
 var material_to_change_color = StandardMaterial3D.new()
 
-#@onready var tween = get_tree().create_tween()
 var tween
 
 func _ready():
@@ -55,13 +57,16 @@ func close_door():
 	
 	tween.tween_property($DoorPanel, "rotation:y", 0, .8)
 	tween.parallel().tween_property($DoorPanel/DoorHandle, "rotation:z", deg_to_rad(0), .3)
-
+	
+	if is_closed_behind:
+		tween.tween_callback(func(): closed_behind.emit())
 
 func _on_area_3d_body_entered(body: Node3D):
 	if(is_closed_behind): 
 		return
 	
 	if(body.is_in_group("Player")):
-		close_door()
 		is_closed_behind = true
+		close_door()
+		closing_behind.emit()
 	

@@ -45,3 +45,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.14249, 1.22577)
 
 [node name="Door2" parent="." instance=ExtResource("1_v22jn")]
 transform = Transform3D(0.697415, 0, -0.716667, 0, 1, 0, 0.716667, 0, 0.697415, 4.64816, 0, 0)
+
+[connection signal="closed_behind" from="Door" to="Player" method="_on_door_closed_behind"]
