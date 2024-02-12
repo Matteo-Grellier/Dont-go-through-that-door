@@ -9,6 +9,9 @@ func _process(_delta):
 		var collider = get_collider() as Node3D
 		
 		if collider.is_in_group("Interactable") and collider.owner is Door:
+			if(collider.owner.is_closed_behind):
+				return;
+			
 			(collider.owner as Door).is_looked_at = true
 			
 			object_currently_viewed = collider
@@ -20,4 +23,4 @@ func _process(_delta):
 		(object_currently_viewed.owner as Door).is_looked_at = false
 
 func interact_with_door(door: Door):
-	door.open_door()
+	door.change_door_state()
