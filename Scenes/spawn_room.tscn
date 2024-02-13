@@ -1,9 +1,23 @@
-[gd_scene load_steps=6 format=3 uid="uid://c8epgk10rthys"]
+[gd_scene load_steps=14 format=3 uid="uid://c8epgk10rthys"]
 
+[ext_resource type="Material" uid="uid://d1rhmi4070sgl" path="res://Ressources/Materials/spawn_room_wall.tres" id="1_abvt1"]
+[ext_resource type="Script" path="res://Scripts/Rooms/spawn_room.gd" id="1_le73g"]
 [ext_resource type="PackedScene" uid="uid://bb1m8i83e1p7s" path="res://Scenes/door.tscn" id="2_ieb7m"]
-[ext_resource type="PackedScene" uid="uid://b4sh3jah4sy0a" path="res://Ressources/Models/speaker.glb" id="3_bplap"]
+[ext_resource type="PackedScene" uid="uid://b020vwlof58o8" path="res://Scenes/speaker.tscn" id="4_dt1qd"]
+[ext_resource type="AudioStream" uid="uid://chrwyb85lsdf8" path="res://Ressources/Audios/hello_listen.wav" id="5_0tl3c"]
+[ext_resource type="AudioStream" uid="uid://b3fnpgpxx5ubt" path="res://Ressources/Audios/left_door.mp3" id="6_pi8id"]
+[ext_resource type="AudioStream" uid="uid://1mk8aym7dpfr" path="res://Ressources/Audios/right_door.mp3" id="7_k3rcr"]
+[ext_resource type="AudioStream" uid="uid://tb306aw6eats" path="res://Ressources/Audios/lets_try_again.mp3" id="8_0vcro"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4yt2c"]
+radius = 2.369
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tabfy"]
+diffuse_mode = 3
+albedo_color = Color(1, 0.74902, 0.470588, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_udoeg"]
+material = SubResource("StandardMaterial3D_tabfy")
 size = Vector2(15, 15)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bqfti"]
@@ -13,6 +27,20 @@ size = Vector3(15, 0, 15)
 size = Vector3(16, 0.1, 16)
 
 [node name="SpawnRoom" type="Node3D"]
+script = ExtResource("1_le73g")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_4yt2c")
+
+[node name="LeftDoor" parent="." instance=ExtResource("2_ieb7m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -7.453)
+default_color = Color(0.976471, 0.878431, 0.815686, 1)
+
+[node name="RightDoor" parent="." instance=ExtResource("2_ieb7m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -7.453)
+default_color = Color(0.976471, 0.878431, 0.815686, 1)
 
 [node name="Floor" type="StaticBody3D" parent="."]
 
@@ -33,18 +61,22 @@ use_collision = true
 [node name="CSGBox3D4" type="CSGBox3D" parent="WallsCSG"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.446, 2, 0)
 size = Vector3(15, 4, 0.1)
+material = ExtResource("1_abvt1")
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="WallsCSG"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.446, 2, 0)
 size = Vector3(15, 4, 0.1)
+material = ExtResource("1_abvt1")
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="WallsCSG"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 7.446)
 size = Vector3(15, 4, 0.1)
+material = ExtResource("1_abvt1")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="WallsCSG"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -7.446)
 size = Vector3(15, 4, 0.1)
+material = ExtResource("1_abvt1")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="WallsCSG"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1.27, -7.446)
@@ -56,16 +88,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1.27, -7.446)
 operation = 2
 size = Vector3(1.44031, 2.7011, 0.203308)
 
-[node name="Door" parent="." instance=ExtResource("2_ieb7m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -7.453)
-default_color = Color(0.976471, 0.878431, 0.815686, 1)
-
-[node name="Door2" parent="." instance=ExtResource("2_ieb7m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -7.453)
-default_color = Color(0.976471, 0.878431, 0.815686, 1)
-
-[node name="speaker" parent="." instance=ExtResource("3_bplap")]
+[node name="Speaker" parent="." instance=ExtResource("4_dt1qd")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 2.8, -7.213)
+audio_sources = Array[AudioStream]([ExtResource("5_0tl3c"), ExtResource("6_pi8id"), ExtResource("7_k3rcr"), ExtResource("8_0vcro")])
+audio_subtitles = Array[String](["Hum... Hello ? Can you ear me ? Listen very carefully.", "What ever you do, don't go through the left door.", "Did I said \"left door\" ? I meant, what ever you do, don't go through the right door. ", "Hum... Ok... Let's try again."])
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 3.91259, 0.585903)
@@ -74,6 +100,10 @@ spot_angle = 55.91
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -4.02913, 4.45596, -6.89292)
+spot_angle_attenuation = 3.86374
 
 [node name="SpotLight3D3" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 4.01954, 4.48226, -6.89292)
+spot_angle_attenuation = 3.86
+
+[connection signal="audio_finished" from="Speaker" to="." method="_on_speaker_audio_finished"]
