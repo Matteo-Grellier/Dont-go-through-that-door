@@ -1,6 +1,6 @@
 extends Node3D
 
-@onready var spot_light := $SpotLight3D
+@onready var spot_light: SpotLight3D = $SpotLight3D
 
 
 func start_death_room():
