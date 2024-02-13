@@ -32,3 +32,7 @@ func _on_speaker_audio_finished():
 		speaker.play_audio(2)
 	
 	speaker.is_already_played = true
+
+
+func _on_area_3d_body_entered(body):
+	pass # Replace with function body.
