@@ -2,7 +2,11 @@ class_name Door
 extends Node3D
 
 @export var default_color := Color(0.44, 0.26, 0.12)
+@export var whats_behind_the_door: String = ""
 @export var is_good := false
+
+@onready var game_manager = get_node("/root/GameManager")
+@onready var room_raycast: RayCast3D = get_node("RoomRaycast")
 
 signal closing_behind
 signal closed_behind
@@ -38,6 +42,14 @@ func change_door_state():
 		close_door()
 
 func open_door():
+	if (game_manager.get("has_a_room_load")):
+		game_manager.load_map()
+	if (!room_raycast.get_collider() == null):
+		
+		game_manager.set("room_node", room_raycast.get_collider().owner)
+		game_manager.get_all_doors_in_room()
+		game_manager.set("has_a_room_load",true)
+	
 	if tween != null:
 		tween.kill()
 	
