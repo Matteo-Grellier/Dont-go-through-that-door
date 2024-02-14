@@ -16,3 +16,4 @@ Button/styles/focus = SubResource("StyleBoxEmpty_htpkn")
 Button/styles/pressed = SubResource("StyleBoxEmpty_2jyw7")
 Fonts/fonts/large = ExtResource("2_tawro")
 Fonts/fonts/normal = ExtResource("2_tawro")
+Label/font_sizes/font_size = 24

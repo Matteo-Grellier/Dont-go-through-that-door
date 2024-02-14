@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://df5w2tklw5n41"]
+[gd_scene load_steps=28 format=3 uid="uid://df5w2tklw5n41"]
 
 [ext_resource type="Script" path="res://Scripts/Menus/main_menu.gd" id="1_2ymh1"]
 [ext_resource type="PackedScene" uid="uid://bb1m8i83e1p7s" path="res://Scenes/door.tscn" id="1_5nwwm"]
@@ -7,6 +7,7 @@
 [ext_resource type="Shader" path="res://Ressources/Shaders/sobelFilter.gdshader" id="2_ay65i"]
 [ext_resource type="Material" uid="uid://ms4tnbi530fk" path="res://Ressources/Materials/yellow_door.tres" id="4_mttjx"]
 [ext_resource type="Texture2D" uid="uid://dsknee1pr8mv" path="res://Ressources/Images/logo-dgttd-white.png" id="5_xhtsu"]
+[ext_resource type="PackedScene" uid="uid://dxd8uroqvbmrv" path="res://Scenes/Menus/options.tscn" id="8_a4i26"]
 
 [sub_resource type="Animation" id="Animation_6drjx"]
 length = 0.001
@@ -394,7 +395,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_a268r")
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer"]
+[node name="MainMenuContent" type="VBoxContainer" parent="CanvasLayer"]
 layout_mode = 1
 offset_left = 250.0
 offset_top = 150.0
@@ -402,31 +403,36 @@ offset_right = 936.0
 offset_bottom = 671.0
 theme_override_constants/separation = 150
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/VBoxContainer2"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MainMenuContent"]
 texture_filter = 1
 layout_mode = 2
 texture = ExtResource("5_xhtsu")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/VBoxContainer2"]
+[node name="Options" parent="CanvasLayer/MainMenuContent" instance=ExtResource("8_a4i26")]
+visible = false
+layout_mode = 2
+
+[node name="MenuButtons" type="VBoxContainer" parent="CanvasLayer/MainMenuContent"]
 layout_mode = 2
 alignment = 1
 
-[node name="StartGameButton" type="Button" parent="CanvasLayer/VBoxContainer2/VBoxContainer"]
+[node name="StartGameButton" type="Button" parent="CanvasLayer/MainMenuContent/MenuButtons"]
 layout_mode = 2
 text = "START GAME"
 flat = true
 
-[node name="OptionsButton" type="Button" parent="CanvasLayer/VBoxContainer2/VBoxContainer"]
+[node name="OptionsButton" type="Button" parent="CanvasLayer/MainMenuContent/MenuButtons"]
 layout_mode = 2
 text = "OPTIONS"
 flat = true
 
-[node name="QuitButton" type="Button" parent="CanvasLayer/VBoxContainer2/VBoxContainer"]
+[node name="QuitButton" type="Button" parent="CanvasLayer/MainMenuContent/MenuButtons"]
 layout_mode = 2
 text = "QUIT"
 flat = true
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -435,5 +441,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.00784314, 0.00784314, 0.00784314, 1)
 
-[connection signal="pressed" from="CanvasLayer/VBoxContainer2/VBoxContainer/StartGameButton" to="." method="_on_start_game_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/VBoxContainer2/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="go_back" from="CanvasLayer/MainMenuContent/Options" to="." method="_on_options_go_back"]
+[connection signal="pressed" from="CanvasLayer/MainMenuContent/MenuButtons/StartGameButton" to="." method="_on_start_game_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenuContent/MenuButtons/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenuContent/MenuButtons/QuitButton" to="." method="_on_quit_button_pressed"]
