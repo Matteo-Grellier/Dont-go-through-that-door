@@ -1,13 +1,15 @@
 extends CanvasLayer
 
 @onready var main_scene: PackedScene = load("res://Scenes/dev_spawn.tscn")
-@onready var color_rect: ColorRect = $CanvasLayer/ColorRect
-@onready var options := $CanvasLayer/MainMenuContent/Options
-@onready var menu_buttons := $CanvasLayer/MainMenuContent/MenuButtons
+@onready var color_rect: ColorRect = $Control/ColorRect
+@onready var options := $Control/MainMenuContent/Options
+@onready var menu_buttons := $Control/MainMenuContent/MenuButtons
 
 var tween: Tween
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	
 	if(tween != null):
 		tween.kill()
 	tween = create_tween()
