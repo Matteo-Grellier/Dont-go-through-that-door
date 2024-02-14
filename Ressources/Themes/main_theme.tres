@@ -1,0 +1,19 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://cgmxss60dp2dp"]
+
+[ext_resource type="FontFile" uid="uid://qa4btte8wh7u" path="res://Ressources/Fonts/Lexend-Black.ttf" id="1_pck7j"]
+[ext_resource type="FontFile" uid="uid://vd0onelypxmr" path="res://Ressources/Fonts/Lexend-Medium.ttf" id="2_tawro"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_htpkn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2jyw7"]
+
+[resource]
+Button/colors/font_hover_color = Color(0.94902, 0.94902, 0, 1)
+Button/colors/font_hover_pressed_color = Color(0.94902, 0.94902, 0, 1)
+Button/font_sizes/font_size = 36
+Button/fonts/font = ExtResource("1_pck7j")
+Button/styles/focus = SubResource("StyleBoxEmpty_htpkn")
+Button/styles/pressed = SubResource("StyleBoxEmpty_2jyw7")
+Fonts/fonts/large = ExtResource("2_tawro")
+Fonts/fonts/normal = ExtResource("2_tawro")
+Label/font_sizes/font_size = 24

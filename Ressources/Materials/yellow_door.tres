@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://ms4tnbi530fk"]
+
+[resource]
+resource_name = "porte"
+cull_mode = 2
+diffuse_mode = 3
+albedo_color = Color(0.94902, 0.94902, 0, 1)

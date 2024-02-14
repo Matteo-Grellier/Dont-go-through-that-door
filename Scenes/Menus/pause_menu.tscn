@@ -1,0 +1,97 @@
+[gd_scene load_steps=5 format=3 uid="uid://bli3pnmylkvvr"]
+
+[ext_resource type="Theme" uid="uid://cgmxss60dp2dp" path="res://Ressources/Themes/main_theme.tres" id="1_lmjjk"]
+[ext_resource type="Script" path="res://Scripts/Menus/pause_menu.gd" id="2_aqo0u"]
+[ext_resource type="FontFile" uid="uid://qa4btte8wh7u" path="res://Ressources/Fonts/Lexend-Black.ttf" id="2_f1uuc"]
+[ext_resource type="PackedScene" uid="uid://dxd8uroqvbmrv" path="res://Scenes/Menus/options.tscn" id="4_27ox6"]
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_lmjjk")
+script = ExtResource("2_aqo0u")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0392157, 0.0392157, 0.0392157, 0.470588)
+
+[node name="MarginTitle" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -201.5
+offset_right = 201.5
+offset_bottom = 120.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 50
+
+[node name="Title" type="Label" parent="MarginTitle"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("2_f1uuc")
+theme_override_font_sizes/font_size = 80
+text = "- PAUSE -"
+horizontal_alignment = 1
+
+[node name="Options" parent="." instance=ExtResource("4_27ox6")]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -130.5
+offset_right = 200.0
+offset_bottom = 130.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PauseMenuButtons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -82.0
+offset_top = -26.5
+offset_right = 82.0
+offset_bottom = 26.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 22
+alignment = 1
+
+[node name="ResumeButton" type="Button" parent="PauseMenuButtons"]
+layout_mode = 2
+text = "RESUME"
+flat = true
+
+[node name="Options" type="Button" parent="PauseMenuButtons"]
+layout_mode = 2
+text = "OPTIONS"
+flat = true
+
+[node name="QuitButton" type="Button" parent="PauseMenuButtons"]
+layout_mode = 2
+text = "QUIT"
+flat = true
+
+[connection signal="go_back" from="Options" to="." method="_on_options_go_back"]
+[connection signal="pressed" from="PauseMenuButtons/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="PauseMenuButtons/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="PauseMenuButtons/QuitButton" to="." method="_on_quit_button_pressed"]
