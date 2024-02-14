@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dd40jihwynw03"]
+[gd_scene load_steps=6 format=3 uid="uid://b6ovcgeb3fr6c"]
 
 [ext_resource type="Script" path="res://Scripts/death_room.gd" id="1_ar5ka"]
 [ext_resource type="Material" uid="uid://7i0d2s5gmi75" path="res://Ressources/Materials/toon_very_dark_material.tres" id="2_5ud7f"]
-[ext_resource type="PackedScene" uid="uid://13lmgnknxpgw" path="res://Scenes/Player.tscn" id="2_f2n0u"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2navy"]
 size = Vector3(15, 1, 30)
@@ -91,6 +90,3 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 13.
 light_energy = 0.0
 spot_range = 22.5379
 spot_angle = 13.4373
-
-[node name="Player" parent="." instance=ExtResource("2_f2n0u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2059, -6.11261)

@@ -1,8 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://c8epgk10rthys"]
+[gd_scene load_steps=14 format=3 uid="uid://rl5dygj8mqvy"]
 
 [ext_resource type="Material" uid="uid://d1rhmi4070sgl" path="res://Ressources/Materials/spawn_room_wall.tres" id="1_abvt1"]
 [ext_resource type="Script" path="res://Scripts/Rooms/spawn_room.gd" id="1_le73g"]
-[ext_resource type="PackedScene" uid="uid://bb1m8i83e1p7s" path="res://Scenes/door.tscn" id="2_ieb7m"]
+[ext_resource type="PackedScene" uid="uid://dnn52v1igl1sx" path="res://Scenes/door.tscn" id="2_ieb7m"]
 [ext_resource type="PackedScene" uid="uid://b020vwlof58o8" path="res://Scenes/speaker.tscn" id="4_dt1qd"]
 [ext_resource type="AudioStream" uid="uid://chrwyb85lsdf8" path="res://Ressources/Audios/hello_listen.wav" id="5_0tl3c"]
 [ext_resource type="AudioStream" uid="uid://b3fnpgpxx5ubt" path="res://Ressources/Audios/left_door.mp3" id="6_pi8id"]
