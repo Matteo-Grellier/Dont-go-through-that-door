@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://b2rdjur7k1xfu"]
+[gd_scene load_steps=7 format=3 uid="uid://dd40jihwynw03"]
 
 [ext_resource type="Script" path="res://Scripts/death_room.gd" id="1_ar5ka"]
-[ext_resource type="Material" uid="uid://dacbej5ljrjns" path="res://Ressources/Materials/very_dark_material.tres" id="1_ndk5a"]
-[ext_resource type="PackedScene" uid="uid://rrbakb7v7hom" path="res://Scenes/Player.tscn" id="2_f2n0u"]
+[ext_resource type="Material" uid="uid://7i0d2s5gmi75" path="res://Ressources/Materials/toon_very_dark_material.tres" id="2_5ud7f"]
+[ext_resource type="PackedScene" uid="uid://13lmgnknxpgw" path="res://Scenes/Player.tscn" id="2_f2n0u"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2navy"]
 size = Vector3(15, 1, 30)
@@ -24,7 +24,7 @@ shape = SubResource("BoxShape3D_2navy")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Ground"]
 transform = Transform3D(0.993258, 0, 0, 0, 0.993258, 0, 0, 0, 0.993258, 0, 0, 0)
-material_override = ExtResource("1_ndk5a")
+material_override = ExtResource("2_5ud7f")
 size = Vector3(15, 1, 30)
 
 [node name="Roof" type="StaticBody3D" parent="."]
@@ -35,7 +35,7 @@ shape = SubResource("BoxShape3D_2navy")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Roof"]
 transform = Transform3D(0.993468, 0, 0, 0, 0.993468, 0, 0, 0, 0.993468, 0, 0, 0)
-material_override = ExtResource("1_ndk5a")
+material_override = ExtResource("2_5ud7f")
 size = Vector3(15, 1, 30)
 
 [node name="LeftWall" type="StaticBody3D" parent="."]
@@ -47,7 +47,7 @@ shape = SubResource("BoxShape3D_i52lu")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="LeftWall"]
 transform = Transform3D(0.993468, 0, 0, 0, 0.993468, 0, 0, 0, 0.993468, 0.607068, 5.74843, 0.0360985)
-material_override = ExtResource("1_ndk5a")
+material_override = ExtResource("2_5ud7f")
 size = Vector3(1, 15, 30)
 
 [node name="RightWall" type="StaticBody3D" parent="."]
@@ -59,7 +59,7 @@ shape = SubResource("BoxShape3D_i52lu")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="RightWall"]
 transform = Transform3D(0.993468, 0, 0, 0, 0.993468, 0, 0, 0, 0.993468, 0.685383, 5.82574, 0)
-material_override = ExtResource("1_ndk5a")
+material_override = ExtResource("2_5ud7f")
 size = Vector3(1, 15, 30)
 
 [node name="BackWall" type="StaticBody3D" parent="."]
@@ -71,7 +71,7 @@ shape = SubResource("BoxShape3D_xdrpy")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="BackWall"]
 transform = Transform3D(0.993468, 0, 0, 0, 0.993468, 0, 0, 0, 0.993468, 0.685383, 5.82574, 0)
-material_override = ExtResource("1_ndk5a")
+material_override = ExtResource("2_5ud7f")
 size = Vector3(1, 15, 18)
 
 [node name="FrontWall" type="StaticBody3D" parent="."]
@@ -83,7 +83,7 @@ shape = SubResource("BoxShape3D_xdrpy")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="FrontWall"]
 transform = Transform3D(0.993468, 0, 0, 0, 0.993468, 0, 0, 0, 0.993468, 0.685383, 5.82574, 0)
-material_override = ExtResource("1_ndk5a")
+material_override = ExtResource("2_5ud7f")
 size = Vector3(1, 15, 18)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]

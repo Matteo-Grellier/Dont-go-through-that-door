@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://036myvciikme"]
+
+[resource]
+resource_name = "porte"
+cull_mode = 2
+diffuse_mode = 3
+albedo_color = Color(0.443137, 0.266667, 0.121569, 1)

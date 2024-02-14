@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://b020vwlof58o8"]
+[gd_scene load_steps=13 format=3 uid="uid://b020vwlof58o8"]
 
 [ext_resource type="Script" path="res://Scripts/speaker.gd" id="1_bodsk"]
+[ext_resource type="Theme" uid="uid://cgmxss60dp2dp" path="res://Ressources/Themes/main_theme.tres" id="2_8vf66"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_flriw"]
 resource_name = "grey"
@@ -186,6 +187,7 @@ offset_right = 390.0
 offset_bottom = -49.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("2_8vf66")
 text = "Whatever you do, dont go through the left door enculé Whatever you do, dont go through the left door enculé Whatever you do, dont go through the left door enculé"
 horizontal_alignment = 1
 vertical_alignment = 1

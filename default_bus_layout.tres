@@ -16,7 +16,6 @@ resource_name = "Amplify"
 volume_db = 2.0
 
 [resource]
-bus/0/send = &"New Bus"
 bus/0/effect/0/effect = SubResource("AudioEffectReverb_n31jb")
 bus/0/effect/0/enabled = true
 bus/0/effect/1/effect = SubResource("AudioEffectHighPassFilter_8yyfi")
