@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://kv0d7cdq8ppm"]
+
+[ext_resource type="PackedScene" uid="uid://bb1m8i83e1p7s" path="res://Scenes/door.tscn" id="1_56dyo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8dvj3"]
+albedo_color = Color(0.443137, 0.752941, 0.45098, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_bss08"]
+material = SubResource("StandardMaterial3D_8dvj3")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4o11c"]
+size = Vector3(20, 0.1, 20)
+
+[node name="Room3" type="Node3D"]
+
+[node name="Floor" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.032, -0.13972, 0.0761638)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(9.94979, 0, 0, 0, 9.94979, 0, 0, 0, 9.94979, 0, 0, 0)
+mesh = SubResource("PlaneMesh_bss08")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("BoxShape3D_4o11c")
+
+[node name="Door" parent="." instance=ExtResource("1_56dyo")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 19.8877, -0.0897194, -0.0572803)
+default_color = Color(0.44, 0.26, 0.12, 1)
+whats_behind_the_door = "Room1"
+is_good = false
