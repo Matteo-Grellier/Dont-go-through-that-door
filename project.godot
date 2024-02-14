@@ -11,8 +11,17 @@ config_version=5
 [application]
 
 config/name="Dont-go-through-that-door"
+run/main_scene="res://Scenes/Menus/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=1
+window/stretch/mode="viewport"
+window/stretch/aspect="keep_height"
 
 [dotnet]
 

@@ -1,0 +1,71 @@
+[gd_scene load_steps=5 format=3 uid="uid://dxd8uroqvbmrv"]
+
+[ext_resource type="Theme" uid="uid://cgmxss60dp2dp" path="res://Ressources/Themes/main_theme.tres" id="1_rx5lm"]
+[ext_resource type="FontFile" uid="uid://qa4btte8wh7u" path="res://Ressources/Fonts/Lexend-Black.ttf" id="1_s47sl"]
+[ext_resource type="Script" path="res://Scripts/Menus/options.gd" id="2_skkol"]
+[ext_resource type="FontFile" uid="uid://nf4hj6b6g8di" path="res://Ressources/Fonts/Lexend-ExtraBold.ttf" id="3_p2b02"]
+
+[node name="Options" type="VBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+size_flags_horizontal = 4
+theme = ExtResource("1_rx5lm")
+theme_override_constants/separation = 25
+alignment = 1
+script = ExtResource("2_skkol")
+
+[node name="Label4" type="Label" parent="."]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_s47sl")
+theme_override_font_sizes/font_size = 32
+text = "OPTIONS"
+horizontal_alignment = 1
+
+[node name="Sliders" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="SensitivityLabel" type="Label" parent="Sliders"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_p2b02")
+text = "Sensitivity"
+
+[node name="SensitivitySlider" type="HSlider" parent="Sliders"]
+layout_mode = 2
+rounded = true
+scrollable = false
+
+[node name="HSeparator" type="HSeparator" parent="Sliders"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="SoundLabel" type="Label" parent="Sliders"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_p2b02")
+text = "Sound"
+
+[node name="SoundSlider" type="HSlider" parent="Sliders"]
+layout_mode = 2
+
+[node name="HSeparator2" type="HSeparator" parent="Sliders"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="MusicLabel" type="Label" parent="Sliders"]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_p2b02")
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="Sliders"]
+visible = false
+layout_mode = 2
+
+[node name="GoBackButton" type="Button" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "⬅ GO BACK"
+flat = true
+
+[connection signal="drag_ended" from="Sliders/SensitivitySlider" to="." method="_on_sensitivity_slider_drag_ended"]
+[connection signal="drag_ended" from="Sliders/SoundSlider" to="." method="_on_sound_slider_drag_ended"]
+[connection signal="pressed" from="GoBackButton" to="." method="_on_go_back_button_pressed"]

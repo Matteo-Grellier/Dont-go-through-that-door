@@ -10,11 +10,10 @@ var sensitivity: float = 0.001
 @onready var neck:Node3D = $Neck
 @onready var camera:Camera3D = $Neck/Camera3D
 
+func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
 func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	elif event.is_action_pressed("ui_cancel"):
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		if event is InputEventMouseMotion:
 			neck.rotate_y(-event.relative.x * sensitivity)

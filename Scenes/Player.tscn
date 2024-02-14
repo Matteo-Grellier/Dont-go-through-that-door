@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://13lmgnknxpgw"]
+[gd_scene load_steps=9 format=3 uid="uid://13lmgnknxpgw"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_kg52k"]
-[ext_resource type="PackedScene" uid="uid://ojxu7sy43qkf" path="res://Scenes/interactor.tscn" id="2_pnebu"]
+[ext_resource type="PackedScene" uid="uid://d11bx7rtdta5u" path="res://Scenes/interactor.tscn" id="2_pnebu"]
 [ext_resource type="Shader" path="res://Ressources/Shaders/sobelFilter.gdshader" id="3_gse5d"]
+[ext_resource type="PackedScene" uid="uid://bli3pnmylkvvr" path="res://Scenes/Menus/pause_menu.tscn" id="4_jq78y"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_kkgcd"]
 
@@ -38,3 +39,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.640663, -0.190039)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.37109)
 mesh = SubResource("QuadMesh_a8lnb")
 skeleton = NodePath("../..")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("4_jq78y")]
