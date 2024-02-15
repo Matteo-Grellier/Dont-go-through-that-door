@@ -2,7 +2,10 @@ class_name Door
 extends Node3D
 
 @export var default_color := Color(0.44, 0.26, 0.12)
+@export var whats_behind_the_door: String = ""
 @export var is_good := false
+
+@onready var game_manager: GameManager = get_node("/root/GameManager")
 
 signal closing_behind
 signal closed_behind
@@ -10,6 +13,7 @@ signal closed_behind
 var is_opened: bool = false
 var is_looked_at: bool = false
 var is_closed_behind: bool = false
+var has_been_already_open:bool = false
 
 var material_to_change_color = StandardMaterial3D.new()
 
@@ -20,6 +24,7 @@ func _ready():
 
 func _process(_delta):
 	if is_looked_at:
+		game_manager.set("door_node",self)
 		var new_color = Color(default_color.r+0.2, default_color.g+0.2, default_color.b+0.2)
 		set_color(new_color)
 	else:
@@ -37,7 +42,14 @@ func change_door_state():
 	else:
 		close_door()
 
+var room_node:Node3D
 func open_door():
+	if !has_been_already_open:
+		game_manager.set("room_behind_the_door",whats_behind_the_door)
+		game_manager.load_map()
+		game_manager.get_all_doors_in_room(whats_behind_the_door)
+	has_been_already_open = true
+	
 	if tween != null:
 		tween.kill()
 	

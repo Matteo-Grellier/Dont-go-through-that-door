@@ -3,6 +3,7 @@ extends Control
 @onready var main_menu_scene: PackedScene = load("res://Scenes/Menus/main_menu.tscn")
 @onready var option_menu: VBoxContainer = $Options
 @onready var pause_menu_buttons: VBoxContainer = $PauseMenuButtons
+@onready var game_manager: GameManager = get_node("/root/GameManager")
 
 var is_pause_menu_enabled = false 
 
@@ -40,8 +41,10 @@ func _on_options_pressed():
 
 
 func _on_quit_button_pressed():
+	game_manager.set("not_even_in_game_scene", false)
 	change_menu_state()
 	get_tree().change_scene_to_packed(main_menu_scene)
+	
 
 
 func _on_options_go_back():

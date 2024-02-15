@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@onready var main_scene: PackedScene = load("res://Scenes/Mathéo/dev_spawn.tscn")
+@onready var main_scene: PackedScene = load("res://Scenes/Mattéo/GameScene.tscn")
 @onready var color_rect: ColorRect = $Control/ColorRect
 @onready var options := $Control/MainMenuContent/Options
 @onready var menu_buttons := $Control/MainMenuContent/MenuButtons

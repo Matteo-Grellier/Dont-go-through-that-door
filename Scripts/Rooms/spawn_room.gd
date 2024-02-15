@@ -10,10 +10,6 @@ func _ready():
 	right_door.is_good = false
 	speaker.play_audio(0)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func invert_correct_door():
 	left_door.is_good = !left_door.is_good
 	right_door.is_good = !right_door.is_good
@@ -32,7 +28,3 @@ func _on_speaker_audio_finished():
 		speaker.play_audio(2)
 	
 	speaker.is_already_played = true
-
-
-func _on_area_3d_body_entered(body):
-	pass # Replace with function body.

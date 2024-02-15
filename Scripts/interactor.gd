@@ -5,7 +5,6 @@ var object_currently_viewed: Node3D
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if is_colliding():
-		
 		var collider = get_collider() as Node3D
 		
 		if collider.is_in_group("Interactable") and collider.owner is Door:
