@@ -48,8 +48,8 @@ func open_door():
 		game_manager.set("room_behind_the_door",whats_behind_the_door)
 		game_manager.load_map()
 		game_manager.get_all_doors_in_room(whats_behind_the_door)
-	
 	has_been_already_open = true
+	
 	if tween != null:
 		tween.kill()
 	

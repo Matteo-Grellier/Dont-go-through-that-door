@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cs1db3gwnm3pf"]
 
-[ext_resource type="PackedScene" uid="uid://bb1m8i83e1p7s" path="res://Scenes/door.tscn" id="1_6kulg"]
+[ext_resource type="PackedScene" uid="uid://dnn52v1igl1sx" path="res://Scenes/door.tscn" id="1_6kulg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_opahh"]
 albedo_color = Color(0.298039, 0.647059, 0.964706, 1)
@@ -12,8 +12,10 @@ material = SubResource("StandardMaterial3D_opahh")
 size = Vector3(20, 0.1, 20)
 
 [node name="Room1" type="Node3D" groups=["Room"]]
+rotation_edit_mode = 1
 
 [node name="Floor" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
 transform = Transform3D(9.98883, 0, 0, 0, 9.98883, 0, 0, 0, 9.98883, 0, 0, 0)
@@ -24,7 +26,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.133418, 0)
 shape = SubResource("BoxShape3D_ofvwc")
 
 [node name="Door" parent="." instance=ExtResource("1_6kulg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.266443, -0.0834179, -9.94709)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.266443, -0.0834179, -19.9471)
 default_color = Color(0.44, 0.26, 0.12, 1)
 whats_behind_the_door = "Room2"
 is_good = false

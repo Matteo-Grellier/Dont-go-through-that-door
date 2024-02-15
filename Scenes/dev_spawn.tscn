@@ -1,13 +1,6 @@
-<<<<<<< HEAD
-[gd_scene load_steps=6 format=3 uid="uid://3ck3rf1us1kp"]
-
-[ext_resource type="PackedScene" uid="uid://rl5dygj8mqvy" path="res://Scenes/spawn_room.tscn" id="1_xdp7l"]
-[ext_resource type="PackedScene" uid="uid://rrbakb7v7hom" path="res://Scenes/Player.tscn" id="1_y2orl"]
-=======
 [gd_scene load_steps=5 format=3 uid="uid://cglhkvk6vw40y"]
 
-[ext_resource type="PackedScene" uid="uid://c8epgk10rthys" path="res://Scenes/spawn_room.tscn" id="1_xdp7l"]
->>>>>>> 0f050ef (:construction: WIP unload last map and the rooms are correctly threaded)
+[ext_resource type="PackedScene" uid="uid://rl5dygj8mqvy" path="res://Scenes/spawn_room.tscn" id="1_xdp7l"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_afe03"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
