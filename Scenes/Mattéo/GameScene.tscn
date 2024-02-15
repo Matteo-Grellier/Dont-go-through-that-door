@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dxra1ns7yqcca"]
 
-[ext_resource type="PackedScene" uid="uid://cglhkvk6vw40y" path="res://Scenes/dev_spawn.tscn" id="1_7nhdn"]
+[ext_resource type="PackedScene" uid="uid://rl5dygj8mqvy" path="res://Scenes/spawn_room.tscn" id="1_hrrnb"]
 
 [node name="GameScene" type="Node3D"]
 
@@ -11,5 +11,4 @@ shadow_enabled = true
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
-[node name="devSpawn" parent="." instance=ExtResource("1_7nhdn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.10195)
+[node name="SpawnRoom" parent="." instance=ExtResource("1_hrrnb")]
