@@ -13,7 +13,6 @@ var room_behind_the_door: String
 var room_node:Node3D
 
 func on_start():
-	print("TEST")
 	if get_parent().get_node("GameScene"):
 		
 		get_parent().get_node("GameScene").add_child(preload("res://Scenes/Player.tscn").instantiate())
