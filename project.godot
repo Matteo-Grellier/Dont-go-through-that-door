@@ -15,6 +15,10 @@ run/main_scene="res://Scenes/Menus/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameManager="*res://Scripts/GameManager.gd"
+
 [display]
 
 window/size/viewport_width=1920
@@ -29,7 +33,7 @@ project/assembly_name="Dont-go-through-that-door"
 
 [editor_plugins]
 
-enabled=PackedStringArray()
+enabled=PackedStringArray("res://addons/nv.file_system/plugin.cfg")
 
 [input]
 

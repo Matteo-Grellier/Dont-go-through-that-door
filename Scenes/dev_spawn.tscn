@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://3ck3rf1us1kp"]
+[gd_scene load_steps=5 format=3 uid="uid://cglhkvk6vw40y"]
 
 [ext_resource type="PackedScene" uid="uid://rl5dygj8mqvy" path="res://Scenes/spawn_room.tscn" id="1_xdp7l"]
-[ext_resource type="PackedScene" uid="uid://rrbakb7v7hom" path="res://Scenes/Player.tscn" id="1_y2orl"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_afe03"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -17,9 +16,6 @@ tonemap_mode = 2
 glow_enabled = true
 
 [node name="devSpawn" type="Node3D"]
-
-[node name="Player" parent="." instance=ExtResource("1_y2orl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07534, 1.1336)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 0, 0)

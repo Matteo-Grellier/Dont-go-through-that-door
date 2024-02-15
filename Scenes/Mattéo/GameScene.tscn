@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxra1ns7yqcca"]
+
+[ext_resource type="PackedScene" uid="uid://cglhkvk6vw40y" path="res://Scenes/dev_spawn.tscn" id="1_7nhdn"]
+
+[node name="GameScene" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="devSpawn" parent="." instance=ExtResource("1_7nhdn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.10195)
