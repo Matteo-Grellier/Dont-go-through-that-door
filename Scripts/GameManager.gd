@@ -33,12 +33,14 @@ var door_node:Door
 
 func load_map():
 	var next_room_scene = ResourceLoader.load_threaded_get("res://Scenes/Rooms/"+room_behind_the_door+".tscn")
-	var next_room:Node3D = next_room_scene.instantiate()
-	
-	door_node.closed_behind.connect(unload_last_room)
-	get_parent().get_node("GameScene").add_child(next_room)
-	next_room.global_position = door_node.global_position
-	array_of_rooms_to_delete.append(get_node("../GameScene/"+room_behind_the_door))
+	if next_room_scene == null:
+		printerr("The door has no defined room")
+	else: 
+		var next_room:Node3D = next_room_scene.instantiate()
+		door_node.closed_behind.connect(unload_last_room)
+		get_parent().get_node("GameScene").add_child(next_room)
+		next_room.global_position = door_node.global_position
+		array_of_rooms_to_delete.append(get_node("../GameScene/"+room_behind_the_door))
 
 var wait_one_door:bool = false
 
