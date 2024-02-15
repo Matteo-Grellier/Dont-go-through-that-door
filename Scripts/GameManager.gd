@@ -1,52 +1,40 @@
 extends Node
 
-
-
 func _ready():
 	on_start()
 
 var array_of_rooms_to_delete:Array[Node3D]
+var room_behind_the_door: String
+var room_node:Node3D
+
 func on_start():
-	var player = preload("res://Scenes/Player.tscn").instantiate()
-	
-	get_parent().get_node("GameScene").add_child(player)
+	get_parent().get_node("GameScene").add_child(preload("res://Scenes/Player.tscn").instantiate())
 	
 	ResourceLoader.load_threaded_request("res://Scenes/Rooms/Room2.tscn")
 	room_behind_the_door = "Room2"
 	room_node = get_node("../GameScene/devSpawn")
 	array_of_rooms_to_delete.append(room_node)
 
-var room_behind_the_door: String
-var room_node:Node3D
 func get_all_doors_in_room(room_name:String):
 	room_node = get_node("../GameScene/"+room_name)
 	for i in room_node.get_child_count():
 		if (room_node.get_child(i).is_in_group("Door")):
-			var door:Node3D = room_node.get_child(i)
-			room_behind_the_door = door.get("whats_behind_the_door")
+			room_behind_the_door = room_node.get_child(i).get("whats_behind_the_door")
 			ResourceLoader.load_threaded_request("res://Scenes/Rooms/"+room_behind_the_door+".tscn")
 
 var door_node:Door
+
 func load_map():
 	var next_room_scene = ResourceLoader.load_threaded_get("res://Scenes/Rooms/"+room_behind_the_door+".tscn")
 	var next_room:Node3D = next_room_scene.instantiate()
+	
 	door_node.closed_behind.connect(unload_last_room)
-	#door_node.opened_door.connect(on_opened_door)
-	#next_room.quaternion.y = door_node.
 	get_parent().get_node("GameScene").add_child(next_room)
 	next_room.global_position = door_node.global_position
-	
 	array_of_rooms_to_delete.append(get_node("../GameScene/"+room_behind_the_door))
 
-#var has_been_already_open:bool = false
-#func on_opened_door(whats_behind_the_door:String):
-	#if !has_been_already_open:
-		#room_behind_the_door = whats_behind_the_door
-		#load_map()
-		#get_all_doors_in_room(whats_behind_the_door)
-	#has_been_already_open = true
-
 var wait_one_door:bool = false
+
 func unload_last_room():
 	if wait_one_door:
 		array_of_rooms_to_delete[0].queue_free()
