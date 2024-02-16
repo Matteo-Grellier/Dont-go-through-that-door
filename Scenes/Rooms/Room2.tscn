@@ -16,29 +16,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.686592, 0, -0.137631)
 rotation_edit_mode = 2
 
 [node name="Floor" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.325858, -8.5551)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.5551)
 rotation_edit_mode = 1
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
-transform = Transform3D(10.0101, 0, 0, 0, 10.0101, 0, 0, 0, 10.0101, 0, 0.412975, 0)
+transform = Transform3D(10.0101, 0, 0, 0, 10.0101, 0, 0, 0, 10.0101, 0, 0, 0)
 rotation_edit_mode = 1
 mesh = SubResource("PlaneMesh_8gc1t")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.280212, 0)
 rotation_edit_mode = 1
 shape = SubResource("BoxShape3D_dpl1a")
 
 [node name="Door" parent="." instance=ExtResource("1_x5xyk")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.9873, -0.0120904, -9.78007)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.9873, 0, -9.78007)
 rotation_edit_mode = 1
-default_color = Color(0.44, 0.26, 0.12, 1)
 whats_behind_the_door = "DeathRoom"
-is_good = false
 
 [node name="Door2" parent="." instance=ExtResource("1_x5xyk")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10.0568, -0.0120904, -9.78007)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10.0568, 0, -9.78007)
 rotation_edit_mode = 1
-default_color = Color(0.44, 0.26, 0.12, 1)
 whats_behind_the_door = "Room3"
-is_good = false

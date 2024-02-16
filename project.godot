@@ -33,7 +33,7 @@ project/assembly_name="Dont-go-through-that-door"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/nv.file_system/plugin.cfg")
+enabled=PackedStringArray()
 
 [input]
 

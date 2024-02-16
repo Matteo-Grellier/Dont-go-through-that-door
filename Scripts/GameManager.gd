@@ -43,8 +43,13 @@ func load_map():
 	else: 
 		var next_room:Node3D = next_room_scene.instantiate()
 		door_node.closed_behind.connect(unload_last_room)
+		
 		get_parent().get_node("GameScene").add_child(next_room)
 		next_room.global_position = door_node.global_position
+		print("next_room.rotation : "+str(next_room.rotation))
+		print("door_node.rotation : "+str(door_node.rotation))
+		next_room.rotation = door_node.global_rotation
+		next_room.rotation
 		array_of_rooms_to_delete.append(get_node("../GameScene/"+room_behind_the_door))
 
 var wait_one_door:bool = false

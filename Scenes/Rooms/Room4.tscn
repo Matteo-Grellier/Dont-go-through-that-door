@@ -14,7 +14,7 @@ size = Vector3(20, 0.1, 20)
 [node name="Room4" type="Node3D"]
 
 [node name="Floor" type="StaticBody3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -10.1123, -0.13972, -0.0572807)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.139599, 0, -9.68804)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
 transform = Transform3D(9.94979, 0, 0, 0, 9.94979, 0, 0, 0, 9.94979, 0, 0, 0)
@@ -24,7 +24,5 @@ mesh = SubResource("PlaneMesh_bss08")
 shape = SubResource("BoxShape3D_4o11c")
 
 [node name="Door" parent="." instance=ExtResource("1_56dyo")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19.968, -0.0897194, 0.0761642)
-default_color = Color(0.44, 0.26, 0.12, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.006, 0, -19.544)
 whats_behind_the_door = "Room1"
-is_good = false
