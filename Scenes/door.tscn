@@ -166,6 +166,9 @@ size = Vector3(0.95697, 0.571777, 2.67334)
 
 [node name="Door" type="Node3D" groups=["Door"]]
 script = ExtResource("1_h4avv")
+default_color = null
+whats_behind_the_door = null
+is_good = null
 
 [node name="DoorPanel" type="StaticBody3D" parent="." groups=["Interactable"]]
 transform = Transform3D(0.6, 0, 0, 0, -2.62268e-08, 0.6, 0, -0.6, -2.62268e-08, -0.591716, 0.101592, 0)

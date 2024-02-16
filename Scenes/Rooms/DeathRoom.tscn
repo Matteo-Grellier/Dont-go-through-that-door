@@ -103,3 +103,6 @@ spot_angle = 13.4373
 [node name="Door" parent="." instance=ExtResource("3_qc0oo")]
 transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 2.09339, 0.152482, 0.597027)
 visible = false
+default_color = null
+whats_behind_the_door = null
+is_good = null

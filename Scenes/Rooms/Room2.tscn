@@ -12,11 +12,11 @@ material = SubResource("StandardMaterial3D_seu68")
 size = Vector3(20, 0.1, 20)
 
 [node name="Room2" type="Node3D" groups=["Room"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.686592, 0, -0.137631)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.687, 0, -1.5)
 rotation_edit_mode = 2
 
 [node name="Floor" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.5551)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
 rotation_edit_mode = 1
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
@@ -31,9 +31,13 @@ shape = SubResource("BoxShape3D_dpl1a")
 [node name="Door" parent="." instance=ExtResource("1_x5xyk")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.9873, 0, -9.78007)
 rotation_edit_mode = 1
+default_color = null
 whats_behind_the_door = "DeathRoom"
+is_good = null
 
 [node name="Door2" parent="." instance=ExtResource("1_x5xyk")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10.0568, 0, -9.78007)
 rotation_edit_mode = 1
+default_color = null
 whats_behind_the_door = "Room3"
+is_good = null
