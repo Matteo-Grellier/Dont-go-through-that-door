@@ -1,63 +1,46 @@
-[gd_scene load_steps=3 format=3 uid="uid://coykfm8cksa8b"]
+[gd_scene load_steps=3 format=3 uid="uid://dqs73dcu3a4qv"]
 
 [ext_resource type="PackedScene" uid="uid://c5cfys0lbs614" path="res://Ressources/Models/light.glb" id="1_6v0uu"]
 [ext_resource type="Script" path="res://Scripts/light.gd" id="1_ktgh7"]
 
 [node name="Light" type="Node3D"]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
 script = ExtResource("1_ktgh7")
 
 [node name="light" parent="." instance=ExtResource("1_6v0uu")]
 
-[node name="OmniLight3D" type="SpotLight3D" parent="light"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -1.82747, -0.291929, 0.00933672)
-light_energy = 0.0
-spot_range = 20.0
-spot_angle = 20.0
-
-[node name="OmniLight3D3" type="SpotLight3D" parent="light"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1.99269, -0.291929, 0.00933672)
-light_energy = 0.0
-spot_range = 20.0
-spot_angle = 20.0
-
-[node name="OmniLight3D5" type="SpotLight3D" parent="light"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.590799, -0.291929, 0.00933672)
-light_energy = 0.0
-spot_range = 20.0
-spot_angle = 20.0
-
-[node name="OmniLight3D7" type="SpotLight3D" parent="light"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.645873, -0.291929, 0.00933672)
-light_energy = 0.0
-spot_range = 20.0
-spot_angle = 20.0
-
 [node name="OmniLight3D2" type="OmniLight3D" parent="light"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.92997, -0.442226, 0)
 light_energy = 0.0
-omni_range = 1.0
+omni_range = 10.0
+omni_attenuation = 2.37841
 
 [node name="OmniLight3D4" type="OmniLight3D" parent="light"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.01679, -0.442226, 0)
 light_energy = 0.0
-omni_range = 1.0
+omni_range = 10.0
+omni_attenuation = 2.37841
 
 [node name="OmniLight3D9" type="OmniLight3D" parent="light"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.202151, -0.442226, 0)
 light_energy = 0.0
-omni_range = 1.0
+omni_range = 10.0
+omni_attenuation = 2.37841
 
 [node name="OmniLight3D6" type="OmniLight3D" parent="light"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.617848, -0.442226, 0)
 light_energy = 0.0
-omni_range = 1.0
+omni_range = 10.0
+omni_attenuation = 2.37841
 
 [node name="OmniLight3D8" type="OmniLight3D" parent="light"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.37612, -0.442226, 0)
 light_energy = 0.0
-omni_range = 1.0
+omni_range = 10.0
+omni_attenuation = 2.37841
 
 [node name="OmniLight3D10" type="OmniLight3D" parent="light"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.14359, -0.442226, 0)
 light_energy = 0.0
-omni_range = 1.0
+omni_range = 10.0
+omni_attenuation = 2.37841
