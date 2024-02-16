@@ -12,11 +12,11 @@ material = SubResource("StandardMaterial3D_seu68")
 size = Vector3(20, 0.1, 20)
 
 [node name="Room2" type="Node3D" groups=["Room"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.686592, 0, -0.137631)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.687, 0, -1.5)
 rotation_edit_mode = 2
 
 [node name="Floor" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.5551)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
 rotation_edit_mode = 1
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]

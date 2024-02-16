@@ -14,7 +14,7 @@ var room_node:Node3D
 
 func on_start():
 	array_of_rooms_to_delete.clear()
-	wait_one_door = false
+	wait_two_rooms = 0
 	if get_parent().get_node("GameScene"):
 		
 		get_parent().get_node("GameScene").add_child(preload("res://Scenes/Player.tscn").instantiate())
@@ -22,13 +22,11 @@ func on_start():
 		ResourceLoader.load_threaded_request("res://Scenes/Rooms/Room2.tscn")
 		room_behind_the_door = "Room2"
 		room_node = get_node("../GameScene/SpawnRoom")
-		print(room_node)
 		array_of_rooms_to_delete.append(room_node)
-		print(array_of_rooms_to_delete)
 		
 
-func get_all_doors_in_room(room_name:String):
-	room_node = get_node("../GameScene/"+room_name)
+func get_all_doors_in_room():
+	room_node = get_node("../GameScene/"+room_behind_the_door)
 	for i in room_node.get_child_count():
 		if (room_node.get_child(i).is_in_group("Door")):
 			room_behind_the_door = room_node.get_child(i).get("whats_behind_the_door")
@@ -46,16 +44,15 @@ func load_map():
 		
 		get_parent().get_node("GameScene").add_child(next_room)
 		next_room.global_position = door_node.global_position
-		print("next_room.rotation : "+str(next_room.rotation))
-		print("door_node.rotation : "+str(door_node.rotation))
 		next_room.rotation = door_node.global_rotation
 		next_room.rotation
 		array_of_rooms_to_delete.append(get_node("../GameScene/"+room_behind_the_door))
 
-var wait_one_door:bool = false
+var wait_two_rooms:int = 0
 
 func unload_last_room():
-	if wait_one_door:
-		array_of_rooms_to_delete[0].queue_free()
+	if wait_two_rooms == 2:
+		array_of_rooms_to_delete[1].queue_free()
 		array_of_rooms_to_delete.pop_at(0)
-	wait_one_door = true
+	else :
+		wait_two_rooms += 1
