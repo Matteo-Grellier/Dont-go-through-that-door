@@ -1,0 +1,96 @@
+[gd_scene load_steps=7 format=3 uid="uid://bn1bdyqojd7qh"]
+
+[ext_resource type="Script" path="res://Scripts/death_room.gd" id="1_ar5ka"]
+[ext_resource type="Material" uid="uid://dacbej5ljrjns" path="res://Ressources/Materials/very_dark_material.tres" id="1_ndk5a"]
+[ext_resource type="PackedScene" uid="uid://13lmgnknxpgw" path="res://Scenes/Player.tscn" id="2_f2n0u"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2navy"]
+size = Vector3(15, 1, 30)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i52lu"]
+size = Vector3(1, 15, 30)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xdrpy"]
+size = Vector3(1, 15, 18)
+
+[node name="DeathRoom" type="Node3D"]
+script = ExtResource("1_ar5ka")
+
+[node name="Ground" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0570631, -14.8934)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("BoxShape3D_2navy")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Ground"]
+transform = Transform3D(0.993258, 0, 0, 0, 0.993258, 0, 0, 0, 0.993258, 0, 0, 0)
+material_override = ExtResource("1_ndk5a")
+size = Vector3(15, 1, 30)
+
+[node name="Roof" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.9829, -14.8934)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Roof"]
+shape = SubResource("BoxShape3D_2navy")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Roof"]
+transform = Transform3D(0.993468, 0, 0, 0, 0.993468, 0, 0, 0, 0.993468, 0, 0, 0)
+material_override = ExtResource("1_ndk5a")
+size = Vector3(15, 1, 30)
+
+[node name="LeftWall" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.65851, 1.19492, -14.8934)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LeftWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.713881, 5.73481, 0.0607376)
+shape = SubResource("BoxShape3D_i52lu")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="LeftWall"]
+transform = Transform3D(0.993468, 0, 0, 0, 0.993468, 0, 0, 0, 0.993468, 0.607068, 5.74843, 0.0360985)
+material_override = ExtResource("1_ndk5a")
+size = Vector3(1, 15, 30)
+
+[node name="RightWall" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.25213, 1.19492, -14.8934)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RightWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.713881, 5.73481, 0.0607376)
+shape = SubResource("BoxShape3D_i52lu")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="RightWall"]
+transform = Transform3D(0.993468, 0, 0, 0, 0.993468, 0, 0, 0, 0.993468, 0.685383, 5.82574, 0)
+material_override = ExtResource("1_ndk5a")
+size = Vector3(1, 15, 30)
+
+[node name="BackWall" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.194145, 1.23473, -29.115)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BackWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.713881, 5.73481, 0.0607377)
+shape = SubResource("BoxShape3D_xdrpy")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="BackWall"]
+transform = Transform3D(0.993468, 0, 0, 0, 0.993468, 0, 0, 0, 0.993468, 0.685383, 5.82574, 0)
+material_override = ExtResource("1_ndk5a")
+size = Vector3(1, 15, 18)
+
+[node name="FrontWall" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.194145, 1.23473, 1.06874)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FrontWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.713881, 5.73481, 0.0607377)
+shape = SubResource("BoxShape3D_xdrpy")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="FrontWall"]
+transform = Transform3D(0.993468, 0, 0, 0, 0.993468, 0, 0, 0, 0.993468, 0.685383, 5.82574, 0)
+material_override = ExtResource("1_ndk5a")
+size = Vector3(1, 15, 18)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 13.8088, -15.3166)
+light_energy = 0.0
+spot_range = 22.5379
+spot_angle = 13.4373
+
+[node name="Player" parent="." instance=ExtResource("2_f2n0u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2059, -6.11261)
