@@ -1,6 +1,18 @@
-[gd_scene load_steps=16 format=3 uid="uid://dnn52v1igl1sx"]
+[gd_scene load_steps=19 format=3 uid="uid://dnn52v1igl1sx"]
 
 [ext_resource type="Script" path="res://Scripts/door.gd" id="1_h4avv"]
+[ext_resource type="FontFile" uid="uid://c80nrjbxxi5nm" path="res://Ressources/Fonts/Tinos-Regular.ttf" id="2_mqy0i"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ofn4j"]
+diffuse_mode = 3
+albedo_color = Color(1, 0.643137, 0.117647, 1)
+metallic = 1.0
+
+[sub_resource type="TextMesh" id="TextMesh_susl3"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_ofn4j")
+font = ExtResource("2_mqy0i")
+font_size = 32
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x2v0l"]
 resource_name = "porte"
@@ -169,6 +181,10 @@ script = ExtResource("1_h4avv")
 
 [node name="DoorPanel" type="StaticBody3D" parent="." groups=["Interactable"]]
 transform = Transform3D(0.6, 0, 0, 0, -2.62268e-08, 0.6, 0, -0.6, -2.62268e-08, -0.591716, 0.101592, 0)
+
+[node name="DoorText" type="MeshInstance3D" parent="DoorPanel"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1, -0.125101, 3.2)
+mesh = SubResource("TextMesh_susl3")
 
 [node name="PanelMesh" type="MeshInstance3D" parent="DoorPanel"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0239604, 0.00175887, 0.131196)
