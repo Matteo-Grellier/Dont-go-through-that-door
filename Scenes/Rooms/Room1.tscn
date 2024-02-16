@@ -27,6 +27,4 @@ shape = SubResource("BoxShape3D_ofvwc")
 
 [node name="Door" parent="." instance=ExtResource("1_6kulg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.266443, -0.0834179, -19.9471)
-default_color = null
 whats_behind_the_door = "Room2"
-is_good = null
