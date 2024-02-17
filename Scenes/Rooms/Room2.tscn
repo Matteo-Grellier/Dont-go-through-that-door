@@ -1,23 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://cxhb36tluy045"]
+[gd_scene load_steps=9 format=3 uid="uid://cxhb36tluy045"]
 
 [ext_resource type="Script" path="res://Scripts/Rooms/room_2.gd" id="1_6vj1k"]
 [ext_resource type="PackedScene" uid="uid://dnn52v1igl1sx" path="res://Scenes/door.tscn" id="1_x5xyk"]
 [ext_resource type="PackedScene" uid="uid://dqs73dcu3a4qv" path="res://Scenes/light.tscn" id="2_871fr"]
 [ext_resource type="PackedScene" path="res://Scenes/speaker.tscn" id="5_6h00m"]
 [ext_resource type="AudioStream" uid="uid://bct80sff6for" path="res://Ressources/Audios/duck.mp3" id="5_i7ssl"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_df532"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-
-[sub_resource type="Sky" id="Sky_ersja"]
-sky_material = SubResource("ProceduralSkyMaterial_df532")
-
-[sub_resource type="Environment" id="Environment_336iw"]
-background_mode = 2
-sky = SubResource("Sky_ersja")
-tonemap_mode = 2
-glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_seu68"]
 albedo_color = Color(0.352941, 0.603922, 0.447059, 1)
@@ -32,9 +19,6 @@ size = Vector3(20, 0.1, 20)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.5)
 rotation_edit_mode = 2
 script = ExtResource("1_6vj1k")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_336iw")
 
 [node name="Floor" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)

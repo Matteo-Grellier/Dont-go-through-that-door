@@ -1,12 +1,12 @@
-[gd_scene load_steps=17 format=3 uid="uid://caoeegfq7tu2e"]
+[gd_scene load_steps=17 format=3 uid="uid://dg85rpiiluct2"]
 
-[ext_resource type="PackedScene" uid="uid://b020vwlof58o8" path="res://Scenes/speaker.tscn" id="1_7aw8r"]
+[ext_resource type="PackedScene" path="res://Scenes/speaker.tscn" id="1_7aw8r"]
 [ext_resource type="PackedScene" uid="uid://dqs73dcu3a4qv" path="res://Scenes/light.tscn" id="1_7th6s"]
 [ext_resource type="PackedScene" uid="uid://dnn52v1igl1sx" path="res://Scenes/door.tscn" id="1_iwycq"]
 [ext_resource type="Script" path="res://Scripts/RoomOne.gd" id="1_udxsx"]
 [ext_resource type="FontFile" uid="uid://nf4hj6b6g8di" path="res://Ressources/Fonts/Lexend-ExtraBold.ttf" id="2_inx3q"]
-[ext_resource type="Material" uid="uid://bdqe31xmn3pqy" path="res://Ressources/Materials/floor_mat.tres" id="3_0pl6j"]
-[ext_resource type="Material" uid="uid://d1rhmi4070sgl" path="res://Ressources/Materials/spawn_room_wall.tres" id="3_bfuwq"]
+[ext_resource type="Material" path="res://Ressources/Materials/floor_mat.tres" id="3_0pl6j"]
+[ext_resource type="Material" path="res://Ressources/Materials/spawn_room_wall.tres" id="3_bfuwq"]
 [ext_resource type="AudioStream" uid="uid://b3fnpgpxx5ubt" path="res://Ressources/Audios/left_door.mp3" id="5_marmv"]
 [ext_resource type="FontFile" uid="uid://c80nrjbxxi5nm" path="res://Ressources/Fonts/Tinos-Regular.ttf" id="9_q00qq"]
 
@@ -93,7 +93,7 @@ audio_subtitles = Array[String](["What ever you do, don't go through the left do
 [node name="Door" parent="." instance=ExtResource("1_iwycq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -14.95)
 default_color = Color(0.976471, 0.878431, 0.815686, 1)
-whats_behind_the_door = "DeathRoom"
+whats_behind_the_door = "Room2"
 door_text = "Right door"
 is_good = true
 
