@@ -11,13 +11,14 @@ func _process(delta: float) -> void:
 var array_of_rooms_to_delete:Array[Node3D]
 var room_behind_the_door: String
 var room_node:Node3D
-
+var player : CharacterBody3D
 func on_start():
+
 	array_of_rooms_to_delete.clear()
 	wait_two_rooms = 0
 	if get_parent().get_node("GameScene"):
-		
-		get_parent().get_node("GameScene").add_child(preload("res://Scenes/Player.tscn").instantiate())
+		player = preload("res://Scenes/Player.tscn").instantiate()
+		get_parent().get_node("GameScene").add_child(player)
 		
 		room_behind_the_door = "SpawnRoom"
 		get_all_doors_in_room()
@@ -49,6 +50,7 @@ func load_map():
 var wait_two_rooms:int = 0
 
 func _on_closed_behind():
+	cut_music()
 	unload_last_room()
 	
 	var new_room_node = get_node("../GameScene/"+room_behind_the_door)
@@ -61,3 +63,7 @@ func unload_last_room():
 		array_of_rooms_to_delete.pop_at(0)
 	else :
 		wait_two_rooms += 1
+
+func cut_music():
+	var tween = create_tween()
+	tween.parallel().tween_property(player.get_node("AudioStreamPlayer"), "volume_db", 0, 3)

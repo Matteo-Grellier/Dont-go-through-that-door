@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://13lmgnknxpgw"]
+[gd_scene load_steps=10 format=3 uid="uid://13lmgnknxpgw"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_kg52k"]
 [ext_resource type="PackedScene" uid="uid://d11bx7rtdta5u" path="res://Scenes/interactor.tscn" id="2_pnebu"]
 [ext_resource type="Shader" path="res://Ressources/Shaders/sobelFilter.gdshader" id="3_gse5d"]
 [ext_resource type="PackedScene" uid="uid://bli3pnmylkvvr" path="res://Scenes/Menus/pause_menu.tscn" id="4_jq78y"]
+[ext_resource type="AudioStream" uid="uid://cl5k1i5up0wcg" path="res://Ressources/Audios/game_music.mp3" id="5_asq15"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_kkgcd"]
 
@@ -43,3 +44,7 @@ skeleton = NodePath("../..")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("4_jq78y")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_asq15")
+autoplay = true
