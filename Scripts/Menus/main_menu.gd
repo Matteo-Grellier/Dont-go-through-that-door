@@ -26,7 +26,7 @@ func _on_start_game_button_pressed():
 	tween = create_tween()
 	color_rect.visible = true
 	tween.tween_property(color_rect, "modulate:a", 1, 2)
-	tween.parallel().tween_property($AudioStreamPlayer, "volume_db", 0, 2)
+	tween.parallel().tween_property($AudioStreamPlayer, "volume_db", -20, 2)
 	tween.tween_callback(change_scene)
 
 func _on_options_button_pressed():
