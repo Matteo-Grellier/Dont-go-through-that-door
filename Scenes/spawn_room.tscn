@@ -3,6 +3,7 @@
 [ext_resource type="Material" uid="uid://d1rhmi4070sgl" path="res://Ressources/Materials/spawn_room_wall.tres" id="1_abvt1"]
 [ext_resource type="Script" path="res://Scripts/Rooms/spawn_room.gd" id="1_le73g"]
 [ext_resource type="PackedScene" uid="uid://dnn52v1igl1sx" path="res://Scenes/door.tscn" id="2_ieb7m"]
+[ext_resource type="Material" uid="uid://bdqe31xmn3pqy" path="res://Ressources/Materials/floor_mat.tres" id="3_2i680"]
 [ext_resource type="PackedScene" uid="uid://b020vwlof58o8" path="res://Scenes/speaker.tscn" id="4_dt1qd"]
 [ext_resource type="AudioStream" uid="uid://chrwyb85lsdf8" path="res://Ressources/Audios/hello_listen.wav" id="5_0tl3c"]
 [ext_resource type="AudioStream" uid="uid://b3fnpgpxx5ubt" path="res://Ressources/Audios/left_door.mp3" id="6_pi8id"]
@@ -12,12 +13,8 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_4yt2c"]
 radius = 2.369
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tabfy"]
-diffuse_mode = 3
-albedo_color = Color(1, 0.74902, 0.470588, 1)
-
 [sub_resource type="PlaneMesh" id="PlaneMesh_udoeg"]
-material = SubResource("StandardMaterial3D_tabfy")
+material = ExtResource("3_2i680")
 size = Vector2(15, 15)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bqfti"]
@@ -37,11 +34,13 @@ shape = SubResource("SphereShape3D_4yt2c")
 [node name="LeftDoor" parent="." instance=ExtResource("2_ieb7m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -7.453)
 default_color = Color(0.976471, 0.878431, 0.815686, 1)
+whats_behind_the_door = "RoomOne"
+is_good = true
 
 [node name="RightDoor" parent="." instance=ExtResource("2_ieb7m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -7.453)
 default_color = Color(0.976471, 0.878431, 0.815686, 1)
-whats_behind_the_door = "Room2"
+whats_behind_the_door = ""
 
 [node name="Floor" type="StaticBody3D" parent="."]
 

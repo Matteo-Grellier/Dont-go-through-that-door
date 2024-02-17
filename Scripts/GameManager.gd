@@ -18,19 +18,17 @@ func on_start():
 	if get_parent().get_node("GameScene"):
 		
 		get_parent().get_node("GameScene").add_child(preload("res://Scenes/Player.tscn").instantiate())
-	
-		ResourceLoader.load_threaded_request("res://Scenes/Rooms/Room2.tscn")
-		room_behind_the_door = "Room2"
-		room_node = get_node("../GameScene/SpawnRoom")
-		array_of_rooms_to_delete.append(room_node)
+		
+		room_behind_the_door = "SpawnRoom"
+		get_all_doors_in_room()
 		
 
 func get_all_doors_in_room():
 	room_node = get_node("../GameScene/"+room_behind_the_door)
 	for i in room_node.get_child_count():
 		if (room_node.get_child(i).is_in_group("Door")):
-			room_behind_the_door = room_node.get_child(i).get("whats_behind_the_door")
-			ResourceLoader.load_threaded_request("res://Scenes/Rooms/"+room_behind_the_door+".tscn")
+			var room_to_get = room_node.get_child(i).get("whats_behind_the_door")
+			ResourceLoader.load_threaded_request("res://Scenes/Rooms/"+room_to_get+".tscn")
 
 var door_node:Door
 
@@ -40,7 +38,7 @@ func load_map():
 		printerr("The door has no defined room")
 	else: 
 		var next_room:Node3D = next_room_scene.instantiate()
-		door_node.closed_behind.connect(unload_last_room)
+		door_node.closed_behind.connect(_on_closed_behind)
 		
 		get_parent().get_node("GameScene").add_child(next_room)
 		next_room.global_position = door_node.global_position
@@ -49,6 +47,10 @@ func load_map():
 		array_of_rooms_to_delete.append(get_node("../GameScene/"+room_behind_the_door))
 
 var wait_two_rooms:int = 0
+
+func _on_closed_behind():
+	unload_last_room()
+	get_node("../GameScene/"+room_behind_the_door).start_room() # Call the start_room function in rooms script
 
 func unload_last_room():
 	if wait_two_rooms == 2:
