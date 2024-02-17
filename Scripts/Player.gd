@@ -11,6 +11,8 @@ var sensitivity: float = 0.001
 @onready var camera:Camera3D = $Neck/Camera3D
 
 func _ready():
+	var tween = create_tween()
+	tween.parallel().tween_property($AudioStreamPlayer, "volume_db", 24, 3)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _unhandled_input(event: InputEvent) -> void:
