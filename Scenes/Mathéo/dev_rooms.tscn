@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dlkhi6wawqmno"]
 
-[ext_resource type="PackedScene" uid="uid://caoeegfq7tu2e" path="res://Scenes/Rooms/RoomOne.tscn" id="1_cdtqx"]
+[ext_resource type="PackedScene" uid="uid://dg85rpiiluct2" path="res://Scenes/Rooms/RoomOne.tscn" id="1_cdtqx"]
 [ext_resource type="PackedScene" uid="uid://13lmgnknxpgw" path="res://Scenes/Player.tscn" id="2_c5pk4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tvpu1"]
