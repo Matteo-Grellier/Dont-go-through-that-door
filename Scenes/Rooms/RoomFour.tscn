@@ -1,0 +1,235 @@
+[gd_scene load_steps=17 format=3 uid="uid://pno1qbr2scbo"]
+
+[ext_resource type="Script" path="res://Scripts/Rooms/room_4.gd" id="1_w6m66"]
+[ext_resource type="FontFile" uid="uid://nf4hj6b6g8di" path="res://Ressources/Fonts/Lexend-ExtraBold.ttf" id="2_d87p5"]
+[ext_resource type="PackedScene" uid="uid://dqs73dcu3a4qv" path="res://Scenes/light.tscn" id="3_58lj0"]
+[ext_resource type="PackedScene" uid="uid://b020vwlof58o8" path="res://Scenes/speaker.tscn" id="4_pcpli"]
+[ext_resource type="AudioStream" uid="uid://bct80sff6for" path="res://Ressources/Audios/duck.mp3" id="5_4m3cr"]
+[ext_resource type="PackedScene" uid="uid://dnn52v1igl1sx" path="res://Scenes/door.tscn" id="6_f0fk6"]
+[ext_resource type="Material" uid="uid://bdqe31xmn3pqy" path="res://Ressources/Materials/floor_mat.tres" id="7_s0ljf"]
+[ext_resource type="Material" uid="uid://d1rhmi4070sgl" path="res://Ressources/Materials/spawn_room_wall.tres" id="8_mrbxy"]
+[ext_resource type="FontFile" uid="uid://c80nrjbxxi5nm" path="res://Ressources/Fonts/Tinos-Regular.ttf" id="9_bffdq"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_p6l8i"]
+size = Vector3(1.3, 0.5, 0.1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_k770y"]
+viewport_path = NodePath("Frame/Sprite3D/SubViewport")
+
+[sub_resource type="BoxMesh" id="BoxMesh_n6vxj"]
+size = Vector3(16, 0.1, 40)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_m3w6n"]
+size = Vector2(15, 40)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1asw6"]
+size = Vector3(15, 0, 40)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kkpd6"]
+diffuse_mode = 3
+albedo_color = Color(0.988235, 0.682353, 0, 1)
+metallic = 1.0
+
+[sub_resource type="TextMesh" id="TextMesh_le68o"]
+material = SubResource("StandardMaterial3D_kkpd6")
+text = "3"
+font = ExtResource("9_bffdq")
+
+[node name="RoomFour" type="Node3D"]
+script = ExtResource("1_w6m66")
+
+[node name="Frame" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.00295, 2.90853, -14.8454)
+visible = false
+mesh = SubResource("BoxMesh_p6l8i")
+
+[node name="Sprite3D" type="Sprite3D" parent="Frame"]
+transform = Transform3D(0.987008, -0.160674, 0, 0.160674, 0.987008, 0, 0, 0, 1, 0, 0.0213704, 0.0503416)
+texture = SubResource("ViewportTexture_k770y")
+
+[node name="SubViewport" type="SubViewport" parent="Frame/Sprite3D"]
+transparent_bg = true
+size = Vector2i(150, 20)
+
+[node name="Label" type="Label" parent="Frame/Sprite3D/SubViewport"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.0
+offset_top = -15.0
+offset_right = 59.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_d87p5")
+theme_override_font_sizes/font_size = 24
+text = "Left Door"
+horizontal_alignment = 1
+
+[node name="Light" parent="." instance=ExtResource("3_58lj0")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 3.8, -8)
+
+[node name="Light2" parent="." instance=ExtResource("3_58lj0")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 3.8, -14)
+
+[node name="Light3" parent="." instance=ExtResource("3_58lj0")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 3.8, -20)
+
+[node name="Light4" parent="." instance=ExtResource("3_58lj0")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 3.8, -27)
+
+[node name="Light5" parent="." instance=ExtResource("3_58lj0")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 3.8, -33)
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 4.01954, 4.48226, -39.7514)
+spot_angle_attenuation = 3.86
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -3.98046, 4.48226, -39.7514)
+spot_angle_attenuation = 3.86
+
+[node name="Ceiling" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.9, -20)
+mesh = SubResource("BoxMesh_n6vxj")
+
+[node name="Speaker" parent="." instance=ExtResource("4_pcpli")]
+transform = Transform3D(-1.74846e-08, 0, -0.4, 0, 0.4, 0, 0.4, 0, -1.74846e-08, 7.2, 2.7, -14.703)
+audio_sources = Array[AudioStream]([ExtResource("5_4m3cr")])
+audio_subtitles = Array[String](["Listen to me, don't find the key"])
+
+[node name="Door" parent="." instance=ExtResource("6_f0fk6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -39.95)
+default_color = Color(0.976471, 0.878431, 0.815686, 1)
+whats_behind_the_door = "DeathRoom"
+is_good = true
+
+[node name="Door2" parent="." instance=ExtResource("6_f0fk6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -39.95)
+default_color = Color(0.976471, 0.878431, 0.815686, 1)
+whats_behind_the_door = "RoomOne"
+door_text = "Key"
+is_good = true
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20)
+material_override = ExtResource("7_s0ljf")
+mesh = SubResource("PlaneMesh_m3w6n")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20)
+shape = SubResource("BoxShape3D_1asw6")
+
+[node name="WallCombinerCSG" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="WallCombinerCSG"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -39.95)
+size = Vector3(15, 4, 0.1)
+material = ExtResource("8_mrbxy")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="WallCombinerCSG"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.45, 2, -20)
+size = Vector3(40, 4, 0.1)
+material = ExtResource("8_mrbxy")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="WallCombinerCSG"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.45, 2, -20)
+size = Vector3(40, 4, 0.1)
+material = ExtResource("8_mrbxy")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="WallCombinerCSG"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -0.05)
+size = Vector3(15, 4, 0.1)
+material = ExtResource("8_mrbxy")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="WallCombinerCSG"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, -0.15)
+operation = 2
+size = Vector3(1.45, 2.7, 0.3)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="WallCombinerCSG"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.006, 1.2, -39.95)
+operation = 2
+size = Vector3(1.45, 2.7, 0.3)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="WallCombinerCSG"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.994, 1.2, -39.95)
+operation = 2
+size = Vector3(1.45, 2.7, 0.3)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.99308, 1.99935, -14.8634)
+visible = false
+mesh = SubResource("TextMesh_le68o")
+
+[node name="SmallWallCombiner" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="SmallWallCombiner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.87939, 2, -5.6)
+size = Vector3(3, 4, 0.1)
+material = ExtResource("8_mrbxy")
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="SmallWallCombiner"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.43, 2, -7.1)
+size = Vector3(3, 4, 0.1)
+material = ExtResource("8_mrbxy")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="SmallWallCombiner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.82061, 2, -9.6)
+size = Vector3(5, 4, 0.1)
+material = ExtResource("8_mrbxy")
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="SmallWallCombiner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9, 2, -19.6)
+size = Vector3(5, 4, 0.1)
+material = ExtResource("8_mrbxy")
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="SmallWallCombiner"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.4, 2, -23.6)
+size = Vector3(22, 4, 0.1)
+material = ExtResource("8_mrbxy")
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="SmallWallCombiner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9, 2, -15.6)
+size = Vector3(3, 4, 0.1)
+material = ExtResource("8_mrbxy")
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="SmallWallCombiner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2, -21.6)
+size = Vector3(5, 4, 0.1)
+material = ExtResource("8_mrbxy")
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="SmallWallCombiner"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 2, -37.4)
+size = Vector3(5, 4, 0.1)
+material = ExtResource("8_mrbxy")
+
+[node name="CSGBox3D18" type="CSGBox3D" parent="SmallWallCombiner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, -34.95)
+size = Vector3(4, 4, 0.1)
+material = ExtResource("8_mrbxy")
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="SmallWallCombiner"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4, 2, -23.6)
+size = Vector3(4, 4, 0.1)
+material = ExtResource("8_mrbxy")
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="SmallWallCombiner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 2, -18.6)
+size = Vector3(2, 4, 0.1)
+material = ExtResource("8_mrbxy")
+
+[connection signal="light_is_on" from="Light" to="." method="_on_light_light_is_on"]
+[connection signal="light_is_on" from="Light2" to="." method="_on_light_light_is_on"]
+[connection signal="light_is_on" from="Light3" to="." method="_on_light_light_is_on"]
+[connection signal="light_is_on" from="Light4" to="." method="_on_light_light_is_on"]
+[connection signal="light_is_on" from="Light5" to="." method="_on_light_light_is_on"]
