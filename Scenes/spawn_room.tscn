@@ -34,12 +34,13 @@ shape = SubResource("SphereShape3D_4yt2c")
 [node name="LeftDoor" parent="." instance=ExtResource("2_ieb7m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -7.453)
 default_color = Color(0.976471, 0.878431, 0.815686, 1)
-whats_behind_the_door = "Room2"
+whats_behind_the_door = "RoomOne"
 is_good = true
 
 [node name="RightDoor" parent="." instance=ExtResource("2_ieb7m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -7.453)
 default_color = Color(0.976471, 0.878431, 0.815686, 1)
+whats_behind_the_door = ""
 
 [node name="Floor" type="StaticBody3D" parent="."]
 
