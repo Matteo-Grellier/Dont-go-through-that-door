@@ -4,7 +4,7 @@
 [ext_resource type="Theme" uid="uid://cgmxss60dp2dp" path="res://Ressources/Themes/main_theme.tres" id="2_8v67g"]
 [ext_resource type="PackedScene" uid="uid://dqs73dcu3a4qv" path="res://Scenes/light.tscn" id="3_lyri0"]
 [ext_resource type="PackedScene" uid="uid://b020vwlof58o8" path="res://Scenes/speaker.tscn" id="4_x4mp8"]
-[ext_resource type="AudioStream" uid="uid://b3fnpgpxx5ubt" path="res://Ressources/Audios/left_door.mp3" id="5_a0slk"]
+[ext_resource type="AudioStream" uid="uid://c1salcjsi01ta" path="res://Ressources/Audios/lastroom.mp3" id="5_qyx4x"]
 [ext_resource type="PackedScene" uid="uid://dnn52v1igl1sx" path="res://Scenes/door.tscn" id="6_80gs1"]
 [ext_resource type="Material" uid="uid://bdqe31xmn3pqy" path="res://Ressources/Materials/floor_mat.tres" id="7_v4uoc"]
 [ext_resource type="Material" uid="uid://d1rhmi4070sgl" path="res://Ressources/Materials/spawn_room_wall.tres" id="8_0ro3d"]
@@ -338,8 +338,8 @@ mesh = SubResource("BoxMesh_n6vxj")
 
 [node name="Speaker" parent="." instance=ExtResource("4_x4mp8")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 3, -14.7031)
-audio_sources = Array[AudioStream]([ExtResource("5_a0slk")])
-audio_subtitles = Array[String](["What ever you do, don't go through the left door."])
+audio_sources = Array[AudioStream]([ExtResource("5_qyx4x")])
+audio_subtitles = Array[String](["Well, I'm beging you for the last time, you souldn't go through the door.... Because behind it, well, there is no more game. It's just the real world and it's not as fun... So frankly, you shouldn't go through it."])
 
 [node name="Door" parent="." instance=ExtResource("6_80gs1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -14.95)
