@@ -50,7 +50,10 @@ var wait_two_rooms:int = 0
 
 func _on_closed_behind():
 	unload_last_room()
-	get_node("../GameScene/"+room_behind_the_door).start_room() # Call the start_room function in rooms script
+	
+	var new_room_node = get_node("../GameScene/"+room_behind_the_door)
+	if new_room_node.has_method("start_room"):
+		new_room_node.start_room() # Call the start_room function in rooms script
 
 func unload_last_room():
 	if wait_two_rooms == 2:
