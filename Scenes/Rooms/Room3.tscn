@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cm5k1xwgyb4fa"]
+[gd_scene load_steps=6 format=3 uid="uid://cm5k1xwgyb4fa"]
 
 [ext_resource type="PackedScene" uid="uid://dnn52v1igl1sx" path="res://Scenes/door.tscn" id="1_4v3xv"]
+[ext_resource type="Script" path="res://Scripts/Rooms/Room3.gd" id="1_v71a7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_adxm2"]
 albedo_color = Color(0.976471, 0.419608, 0.427451, 1)
@@ -12,6 +13,7 @@ material = SubResource("StandardMaterial3D_adxm2")
 size = Vector3(20, 0.1, 20)
 
 [node name="Room3" type="Node3D"]
+script = ExtResource("1_v71a7")
 
 [node name="Floor" type="StaticBody3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.144, 0, -10)
@@ -24,5 +26,12 @@ mesh = SubResource("PlaneMesh_bss08")
 shape = SubResource("BoxShape3D_4o11c")
 
 [node name="Door" parent="." instance=ExtResource("1_4v3xv")]
-transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 0.010128, 0, -19.5645)
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 0.010128, 0, -20.007)
 whats_behind_the_door = "Room4"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
