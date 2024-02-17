@@ -9,7 +9,7 @@ signal light_is_on
 func swhitch_lights_on(delay: float):
 	await wait(delay)
 	for omni: OmniLight3D in omnis:
-		omni.light_energy = 1
+		omni.light_energy = .35
 	light_is_on.emit()
 
 func wait(duration):  
