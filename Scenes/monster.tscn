@@ -1,0 +1,218 @@
+[gd_scene load_steps=22 format=3 uid="uid://c50gdkff70cys"]
+
+[ext_resource type="Script" path="res://Scripts/monster.gd" id="1_bvua7"]
+[ext_resource type="Texture2D" uid="uid://bbbk51workhab" path="res://Ressources/Sprites/monster-big-smile.png" id="1_vns48"]
+[ext_resource type="Texture2D" uid="uid://b84wmv363ypj1" path="res://Ressources/Sprites/monster-huge-smile.png" id="2_qtmqg"]
+[ext_resource type="Texture2D" uid="uid://46cahw5ddyqm" path="res://Ressources/Sprites/monster-little-smile.png" id="3_wwuof"]
+[ext_resource type="Texture2D" uid="uid://nf0bl65qwvwk" path="res://Ressources/Sprites/monster-smile.png" id="4_4xy4b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sy0m6"]
+atlas = ExtResource("1_vns48")
+region = Rect2(0, 0, 1600, 1440)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iih8a"]
+atlas = ExtResource("1_vns48")
+region = Rect2(1600, 0, 1600, 1440)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gs6ld"]
+atlas = ExtResource("1_vns48")
+region = Rect2(3200, 0, 1600, 1440)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8sxm0"]
+atlas = ExtResource("2_qtmqg")
+region = Rect2(0, 0, 1600, 1440)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6ii7"]
+atlas = ExtResource("2_qtmqg")
+region = Rect2(1600, 0, 1600, 1440)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7r8t"]
+atlas = ExtResource("2_qtmqg")
+region = Rect2(3200, 0, 1600, 1440)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mduac"]
+atlas = ExtResource("3_wwuof")
+region = Rect2(0, 0, 1600, 1440)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0x4j6"]
+atlas = ExtResource("3_wwuof")
+region = Rect2(1600, 0, 1600, 1440)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jpcpj"]
+atlas = ExtResource("3_wwuof")
+region = Rect2(3200, 0, 1600, 1440)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vlsa0"]
+atlas = ExtResource("4_4xy4b")
+region = Rect2(0, 0, 1600, 1440)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_esnvt"]
+atlas = ExtResource("4_4xy4b")
+region = Rect2(1600, 0, 1600, 1440)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4fmfv"]
+atlas = ExtResource("4_4xy4b")
+region = Rect2(3200, 0, 1600, 1440)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ar0d7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sy0m6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iih8a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gs6ld")
+}],
+"loop": true,
+"name": &"big_smile",
+"speed": 10.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8sxm0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f6ii7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i7r8t")
+}],
+"loop": true,
+"name": &"huge_smile",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mduac")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0x4j6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jpcpj")
+}],
+"loop": true,
+"name": &"little_smile",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vlsa0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_esnvt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4fmfv")
+}],
+"loop": true,
+"name": &"smile",
+"speed": 10.0
+}]
+
+[sub_resource type="Animation" id="Animation_x87tn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite3D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite3D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite3D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_to1rg"]
+resource_name = "death_animation"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite3D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2, 3, 4, 5, 6, 7, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true, false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite3D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2, 4, 6, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector3(1, 1, 1), Vector3(1.3, 1.3, 1.3), Vector3(1.6, 1.6, 1.6), Vector3(2, 2, 2)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite3D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5, 4, 10),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.0705882), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7rhm8"]
+_data = {
+"RESET": SubResource("Animation_x87tn"),
+"death_animation": SubResource("Animation_to1rg")
+}
+
+[node name="Monster" type="Node3D"]
+script = ExtResource("1_bvua7")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+pixel_size = 0.0005
+billboard = 1
+sprite_frames = SubResource("SpriteFrames_ar0d7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7rhm8")
+}
+autoplay = "death_animation"
