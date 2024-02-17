@@ -1,9 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://cxhb36tluy045"]
+[gd_scene load_steps=12 format=3 uid="uid://cxhb36tluy045"]
 
+[ext_resource type="Script" path="res://Scripts/Rooms/room_2.gd" id="1_6vj1k"]
 [ext_resource type="PackedScene" uid="uid://dnn52v1igl1sx" path="res://Scenes/door.tscn" id="1_x5xyk"]
+[ext_resource type="PackedScene" uid="uid://dqs73dcu3a4qv" path="res://Scenes/light.tscn" id="2_871fr"]
+[ext_resource type="PackedScene" path="res://Scenes/speaker.tscn" id="5_6h00m"]
+[ext_resource type="AudioStream" uid="uid://bct80sff6for" path="res://Ressources/Audios/duck.mp3" id="5_i7ssl"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_df532"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_ersja"]
+sky_material = SubResource("ProceduralSkyMaterial_df532")
+
+[sub_resource type="Environment" id="Environment_336iw"]
+background_mode = 2
+sky = SubResource("Sky_ersja")
+tonemap_mode = 2
+glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_seu68"]
-albedo_color = Color(0.847059, 0.945098, 0, 1)
+albedo_color = Color(0.352941, 0.603922, 0.447059, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_8gc1t"]
 material = SubResource("StandardMaterial3D_seu68")
@@ -12,8 +29,12 @@ material = SubResource("StandardMaterial3D_seu68")
 size = Vector3(20, 0.1, 20)
 
 [node name="Room2" type="Node3D" groups=["Room"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.687, 0, -1.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.5)
 rotation_edit_mode = 2
+script = ExtResource("1_6vj1k")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_336iw")
 
 [node name="Floor" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
@@ -28,12 +49,121 @@ mesh = SubResource("PlaneMesh_8gc1t")
 rotation_edit_mode = 1
 shape = SubResource("BoxShape3D_dpl1a")
 
-[node name="Door" parent="." instance=ExtResource("1_x5xyk")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.9873, 0, -9.78007)
+[node name="RedDoor" parent="." instance=ExtResource("1_x5xyk")]
+transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 4, -0.035, -19.9)
 rotation_edit_mode = 1
-whats_behind_the_door = "DeathRoom"
-
-[node name="Door2" parent="." instance=ExtResource("1_x5xyk")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10.0568, 0, -9.78007)
-rotation_edit_mode = 1
+default_color = Color(0.933333, 0.211765, 0.211765, 1)
 whats_behind_the_door = "Room3"
+is_good = true
+
+[node name="BlueDoor" parent="." instance=ExtResource("1_x5xyk")]
+transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, -4, -0.035, -19.78)
+rotation_edit_mode = 1
+default_color = Color(0.215686, 0.490196, 0.964706, 1)
+whats_behind_the_door = "DeathRoom"
+is_good = false
+
+[node name="Ceiling" type="CSGBox3D" parent="."]
+transform = Transform3D(21.4214, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9, -9.75)
+use_collision = true
+size = Vector3(1, 1, 22)
+
+[node name="LeftWall" type="CSGBox3D" parent="."]
+transform = Transform3D(-9.36358e-07, 0, 1, 0, 1, 0, -21.4214, 0, -4.37114e-08, -10, 4.5, -10.3556)
+use_collision = true
+size = Vector3(0.966797, 10, 0.5)
+
+[node name="RightWall" type="CSGBox3D" parent="."]
+transform = Transform3D(-9.36358e-07, 0, 1, 0, 1, 0, -21.4214, 0, -4.37114e-08, 10, 4.5, -10.3556)
+use_collision = true
+size = Vector3(0.966797, 10, 0.5)
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+
+[node name="BackWall" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(21.4214, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, -20)
+size = Vector3(1, 10, 0.5)
+
+[node name="RightDoorCSG" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(-9.36358e-07, 0, -1, 0, 1, 0, 21.4214, 0, -4.37114e-08, 4, 1.35, -19.9)
+operation = 2
+size = Vector3(0.0394958, 2.60248, 1.3252)
+
+[node name="LeftDoorCSG" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(-9.36358e-07, 0, -1, 0, 1, 0, 21.4214, 0, -4.37114e-08, -4, 1.35, -19.9)
+operation = 2
+size = Vector3(0.0394958, 2.60248, 1.3252)
+
+[node name="CSGCombiner3D2" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0446637, 0, 0)
+use_collision = true
+
+[node name="BackWall" type="CSGBox3D" parent="CSGCombiner3D2"]
+transform = Transform3D(21.4214, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, -0.129778)
+size = Vector3(1, 10, 0.163086)
+
+[node name="LeftDoorCSG" type="CSGBox3D" parent="CSGCombiner3D2"]
+transform = Transform3D(-8.74228e-07, 0, -1.05, 0, 1.027, 0, 20, 0, -4.5897e-08, 0.0405904, 1.35, -0.092)
+operation = 2
+size = Vector3(0.0394958, 2.60248, 1.41631)
+
+[node name="Light" parent="." instance=ExtResource("2_871fr")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -4, 5.64, -16)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Light"]
+transform = Transform3D(1.42857, 0, 0, 0, 1.42857, 0, 0, 0, 1.42857, -2, 2.14, 0)
+radius = 0.05
+height = 3.0
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Light"]
+transform = Transform3D(1.42857, 0, 0, 0, 1.42857, 0, 0, 0, 1.42857, 2, 2.14, 0)
+radius = 0.05
+height = 3.0
+
+[node name="Light2" parent="." instance=ExtResource("2_871fr")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -4, 5.64, -6)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Light2"]
+transform = Transform3D(1.42857, 0, 0, 0, 1.42857, 0, 0, 0, 1.42857, -2, 2.14, 0)
+radius = 0.05
+height = 3.0
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Light2"]
+transform = Transform3D(1.42857, 0, 0, 0, 1.42857, 0, 0, 0, 1.42857, 2, 2.14, 0)
+radius = 0.05
+height = 3.0
+
+[node name="Light3" parent="." instance=ExtResource("2_871fr")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 4, 5.64, -16)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Light3"]
+transform = Transform3D(1.42857, 0, 0, 0, 1.42857, 0, 0, 0, 1.42857, -2, 2.14, 0)
+radius = 0.05
+height = 3.0
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Light3"]
+transform = Transform3D(1.42857, 0, 0, 0, 1.42857, 0, 0, 0, 1.42857, 2, 2.14, 0)
+radius = 0.05
+height = 3.0
+
+[node name="Light4" parent="." instance=ExtResource("2_871fr")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 4, 5.64, -6)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Light4"]
+transform = Transform3D(1.42857, 0, 0, 0, 1.42857, 0, 0, 0, 1.42857, -2, 2.14, 0)
+radius = 0.05
+height = 3.0
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Light4"]
+transform = Transform3D(1.42857, 0, 0, 0, 1.42857, 0, 0, 0, 1.42857, 2, 2.14, 0)
+radius = 0.05
+height = 3.0
+
+[node name="Speaker" parent="." instance=ExtResource("5_6h00m")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 4, -19.62)
+audio_sources = Array[AudioStream]([ExtResource("5_i7ssl")])
+audio_subtitles = Array[String](["The door you should go through is on the left of the one that is on the right of the one that on the left of the red one"])
+
+[connection signal="light_is_on" from="Light" to="." method="_on_light_light_is_on"]
+[connection signal="light_is_on" from="Light2" to="." method="_on_light_2_light_is_on"]
+[connection signal="light_is_on" from="Light4" to="." method="_on_light_2_light_is_on"]
