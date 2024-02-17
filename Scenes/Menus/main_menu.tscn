@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://Scripts/Menus/main_menu.gd" id="1_2ymh1"]
 [ext_resource type="PackedScene" uid="uid://dnn52v1igl1sx" path="res://Scenes/door.tscn" id="1_5nwwm"]
 [ext_resource type="Theme" uid="uid://cgmxss60dp2dp" path="res://Ressources/Themes/main_theme.tres" id="1_a268r"]
-[ext_resource type="Material" uid="uid://7i0d2s5gmi75" path="res://Ressources/Materials/toon_very_dark_material.tres" id="1_ndm2p"]
+[ext_resource type="Material" path="res://Ressources/Materials/toon_very_dark_material.tres" id="1_ndm2p"]
 [ext_resource type="Shader" path="res://Ressources/Shaders/sobelFilter.gdshader" id="2_ay65i"]
-[ext_resource type="Material" uid="uid://ms4tnbi530fk" path="res://Ressources/Materials/yellow_door.tres" id="4_mttjx"]
+[ext_resource type="Material" path="res://Ressources/Materials/yellow_door.tres" id="4_mttjx"]
 [ext_resource type="Texture2D" uid="uid://dsknee1pr8mv" path="res://Ressources/Images/logo-dgttd-white.png" id="5_xhtsu"]
 [ext_resource type="PackedScene" uid="uid://dxd8uroqvbmrv" path="res://Scenes/Menus/options.tscn" id="8_a4i26"]
 

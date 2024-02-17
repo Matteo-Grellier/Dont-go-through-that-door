@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dqs73dcu3a4qv"]
+[gd_scene load_steps=4 format=3 uid="uid://dqs73dcu3a4qv"]
 
 [ext_resource type="PackedScene" uid="uid://c5cfys0lbs614" path="res://Ressources/Models/light.glb" id="1_6v0uu"]
 [ext_resource type="Script" path="res://Scripts/light.gd" id="1_ktgh7"]
+[ext_resource type="AudioStream" uid="uid://dpvb6gqp5yrdq" path="res://Ressources/Audios/buzzzzz.mp3" id="3_f0fr8"]
 
 [node name="Light" type="Node3D"]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
@@ -44,3 +45,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.14359, -0.442226, 0)
 light_energy = 0.0
 omni_range = 10.0
 omni_attenuation = 2.37841
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_f0fr8")
+volume_db = -10.0
+pitch_scale = 0.8
+max_distance = 10.0
+max_polyphony = 4
+bus = &"MusicAndSound"

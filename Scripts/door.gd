@@ -6,6 +6,9 @@ extends Node3D
 @export var door_text: String
 @export var is_good := false
 
+
+@onready var sound_open: AudioStreamPlayer3D = $AudioOpen
+@onready var sound_close: AudioStreamPlayer3D = $AudioClose
 @onready var game_manager: GameManager = get_node("/root/GameManager")
 @onready var door_text_mesh_instance: MeshInstance3D = $DoorPanel/DoorText
 
@@ -54,6 +57,8 @@ func open_door():
 		game_manager.get_all_doors_in_room()
 	has_been_already_open = true
 	
+	sound_open.play()
+	
 	if tween != null:
 		tween.kill()
 	
@@ -67,6 +72,8 @@ func open_door():
 func close_door():
 	if tween != null:
 		tween.kill()
+	
+	sound_close.play()
 	
 	tween = get_tree().create_tween()
 	
