@@ -1,37 +1,128 @@
-[gd_scene load_steps=6 format=3 uid="uid://cm5k1xwgyb4fa"]
+[gd_scene load_steps=10 format=3 uid="uid://cm5k1xwgyb4fa"]
 
 [ext_resource type="PackedScene" uid="uid://dnn52v1igl1sx" path="res://Scenes/door.tscn" id="1_4v3xv"]
 [ext_resource type="Script" path="res://Scripts/Rooms/Room3.gd" id="1_v71a7"]
+[ext_resource type="Material" path="res://Ressources/Materials/floor_mat.tres" id="3_p02wm"]
+[ext_resource type="Material" uid="uid://d1rhmi4070sgl" path="res://Ressources/Materials/spawn_room_wall.tres" id="4_qbtah"]
+[ext_resource type="PackedScene" uid="uid://dqs73dcu3a4qv" path="res://Scenes/light.tscn" id="5_2yae0"]
+[ext_resource type="PackedScene" uid="uid://b020vwlof58o8" path="res://Scenes/speaker.tscn" id="6_23lal"]
+[ext_resource type="AudioStream" uid="uid://bg68npvd0a8is" path="res://Ressources/Audios/room3.mp3" id="7_koboa"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_adxm2"]
-albedo_color = Color(0.976471, 0.419608, 0.427451, 1)
+[sub_resource type="PlaneMesh" id="PlaneMesh_7iisy"]
+size = Vector2(15, 47)
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_bss08"]
-material = SubResource("StandardMaterial3D_adxm2")
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_4o11c"]
-size = Vector3(20, 0.1, 20)
+[sub_resource type="BoxShape3D" id="BoxShape3D_h0ovv"]
+size = Vector3(15, 0, 47)
 
 [node name="Room3" type="Node3D"]
 script = ExtResource("1_v71a7")
 
-[node name="Floor" type="StaticBody3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.144, 0, -10)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
-transform = Transform3D(9.94979, 0, 0, 0, 9.94979, 0, 0, 0, 9.94979, 0, 0, 0)
-mesh = SubResource("PlaneMesh_bss08")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
-shape = SubResource("BoxShape3D_4o11c")
-
 [node name="Door" parent="." instance=ExtResource("1_4v3xv")]
-transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 0.010128, 0, -20.007)
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 0.010128, 0, -47.007)
 whats_behind_the_door = "Room4"
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 35.0
 one_shot = true
 autostart = true
 
+[node name="Floor2" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -23.535)
+material_override = ExtResource("3_p02wm")
+mesh = SubResource("PlaneMesh_7iisy")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -23.5)
+shape = SubResource("BoxShape3D_h0ovv")
+
+[node name="Walls" type="Node3D" parent="."]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Walls"]
+operation = 2
+use_collision = true
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="Walls/CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.42296, 2, -23.5)
+size = Vector3(47, 4, 0.1)
+material = ExtResource("4_qbtah")
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="Walls/CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 0, -0.0700008, 3.73071, -23.5)
+size = Vector3(47, 15, 0.1)
+material = ExtResource("4_qbtah")
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="Walls/CSGCombiner3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0700026, 2, -47.0457)
+size = Vector3(15, 4, 0.1)
+material = ExtResource("4_qbtah")
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="Walls/CSGCombiner3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0699984, 2, -0.0456867)
+size = Vector3(15, 4, 0.1)
+material = ExtResource("4_qbtah")
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="Walls/CSGCombiner3D"]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -7.44575, 2, -23.486)
+size = Vector3(47, 4, 0.1)
+material = ExtResource("4_qbtah")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Walls/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0.00552976)
+operation = 2
+size = Vector3(1.45, 2.7, 0.61106)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Walls/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.37954, -47.1457)
+operation = 2
+size = Vector3(1.45, 2.7, 0.61106)
+
+[node name="Light" parent="." instance=ExtResource("5_2yae0")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0.217188, 3.57206, -3.64837)
+
+[node name="Light2" parent="." instance=ExtResource("5_2yae0")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0.217188, 3.57206, -7.84837)
+
+[node name="Light3" parent="." instance=ExtResource("5_2yae0")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0.217188, 3.57206, -12.0484)
+
+[node name="Light4" parent="." instance=ExtResource("5_2yae0")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0.217188, 3.57206, -16.2484)
+
+[node name="Light5" parent="." instance=ExtResource("5_2yae0")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0.217188, 3.57206, -20.4484)
+
+[node name="Light6" parent="." instance=ExtResource("5_2yae0")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0.217188, 3.57206, -24.6484)
+
+[node name="Light7" parent="." instance=ExtResource("5_2yae0")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0.217188, 3.57206, -28.8484)
+
+[node name="Light8" parent="." instance=ExtResource("5_2yae0")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0.217188, 3.57206, -33.0484)
+
+[node name="Light9" parent="." instance=ExtResource("5_2yae0")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0.217188, 3.57206, -37.2484)
+
+[node name="Light10" parent="." instance=ExtResource("5_2yae0")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0.217188, 3.57206, -41.4484)
+
+[node name="Speaker" parent="." instance=ExtResource("6_23lal")]
+transform = Transform3D(0.275204, -0.0869824, -0.276942, -0.0329641, 0.369786, -0.1489, 0.288403, 0.125268, 0.247249, 7.20982, 3.00898, -46.805)
+audio_sources = Array[AudioStream]([ExtResource("7_koboa")])
+audio_subtitles = Array[String](["Listen to me, don't find the key"])
+
+[node name="Speaker3" parent="." instance=ExtResource("6_23lal")]
+transform = Transform3D(-1.74846e-08, 0, -0.4, 0, 0.4, 0, 0.4, 0, -1.74846e-08, 7.20982, 3.00898, -19.805)
+audio_sources = Array[AudioStream]([ExtResource("7_koboa")])
+audio_subtitles = Array[String](["Listen to me, don't find the key"])
+
+[node name="Speaker2" parent="." instance=ExtResource("6_23lal")]
+transform = Transform3D(-0.275204, 0.0869824, 0.276942, -0.0329641, 0.369786, -0.1489, -0.288403, -0.125268, -0.247249, -7.27076, 3.00898, -0.419408)
+audio_sources = Array[AudioStream]([ExtResource("7_koboa")])
+audio_subtitles = Array[String](["Listen to me, don't find the key"])
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="light_is_on" from="Light10" to="." method="_on_light_10_light_is_on"]
