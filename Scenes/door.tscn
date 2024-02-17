@@ -1,7 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://dnn52v1igl1sx"]
+[gd_scene load_steps=21 format=3 uid="uid://dnn52v1igl1sx"]
 
 [ext_resource type="Script" path="res://Scripts/door.gd" id="1_h4avv"]
 [ext_resource type="FontFile" uid="uid://c80nrjbxxi5nm" path="res://Ressources/Fonts/Tinos-Regular.ttf" id="2_mqy0i"]
+[ext_resource type="AudioStream" uid="uid://cd1pnsvw5vrp8" path="res://Ressources/Audios/door.mp3" id="3_lqeku"]
+[ext_resource type="AudioStream" uid="uid://decbq133gdxog" path="res://Ressources/Audios/closedoor.mp3" id="4_peid3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ofn4j"]
 diffuse_mode = 3
@@ -178,9 +180,6 @@ size = Vector3(0.95697, 0.571777, 2.67334)
 
 [node name="Door" type="Node3D" groups=["Door"]]
 script = ExtResource("1_h4avv")
-default_color = null
-whats_behind_the_door = null
-is_good = null
 
 [node name="DoorPanel" type="StaticBody3D" parent="." groups=["Interactable"]]
 transform = Transform3D(0.6, 0, 0, 0, -2.62268e-08, 0.6, 0, -0.6, -2.62268e-08, -0.591716, 0.101592, 0)
@@ -233,5 +232,17 @@ shape = SubResource("BoxShape3D_wa7rk")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.17075, 1.46551, -1.46215)
 shape = SubResource("BoxShape3D_wa7rk")
+
+[node name="AudioOpen" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_lqeku")
+pitch_scale = 0.8
+max_distance = 10.0
+bus = &"MusicAndSound"
+
+[node name="AudioClose" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_peid3")
+pitch_scale = 0.8
+max_distance = 10.0
+bus = &"MusicAndSound"
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
