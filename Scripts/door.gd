@@ -3,9 +3,11 @@ extends Node3D
 
 @export var default_color := Color(0.44, 0.26, 0.12)
 @export var whats_behind_the_door: String = ""
+@export var door_text: String
 @export var is_good := false
 
 @onready var game_manager: GameManager = get_node("/root/GameManager")
+@onready var door_text_mesh_instance: MeshInstance3D = $DoorPanel/DoorText
 
 signal closing_behind
 signal closed_behind
@@ -21,6 +23,8 @@ var tween
 
 func _ready():
 	set_color(default_color)
+	var door_text_mesh = (door_text_mesh_instance.mesh as TextMesh)
+	door_text_mesh.text = door_text
 
 func _process(_delta):
 	if is_looked_at:

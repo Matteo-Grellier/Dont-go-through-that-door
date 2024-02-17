@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://ddtok7ckidi7k"]
 
-[ext_resource type="PackedScene" uid="uid://dnn52v1igl1sx" path="res://Scenes/door.tscn" id="1_v22jn"]
-[ext_resource type="PackedScene" uid="uid://13lmgnknxpgw" path="res://Scenes/Player.tscn" id="4_21bq6"]
+[ext_resource type="PackedScene" uid="uid://dnn52v1igl1sx" path="res://Scenes/door.tscn" id="1_q37yp"]
+[ext_resource type="PackedScene" uid="uid://13lmgnknxpgw" path="res://Scenes/Player.tscn" id="2_4lewh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1lfa8"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -38,16 +38,11 @@ mesh = SubResource("PlaneMesh_j2kdx")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("WorldBoundaryShape3D_0pdye")
 
-[node name="Door" parent="." instance=ExtResource("1_v22jn")]
-default_color = Color(0.44, 0.26, 0.12, 1)
-whats_behind_the_door = ""
+[node name="Door" parent="." instance=ExtResource("1_q37yp")]
 is_good = true
 
-[node name="Player" parent="." instance=ExtResource("4_21bq6")]
+[node name="Player" parent="." instance=ExtResource("2_4lewh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.14249, 1.22577)
 
-[node name="Door2" parent="." instance=ExtResource("1_v22jn")]
+[node name="Door2" parent="." instance=ExtResource("1_q37yp")]
 transform = Transform3D(0.697415, 0, -0.716667, 0, 1, 0, 0.716667, 0, 0.697415, 4.64816, 0, 0)
-default_color = Color(0.44, 0.26, 0.12, 1)
-whats_behind_the_door = ""
-is_good = false
