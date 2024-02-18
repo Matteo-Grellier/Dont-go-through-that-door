@@ -24,41 +24,63 @@ horizontal_alignment = 1
 layout_mode = 2
 
 [node name="SensitivityLabel" type="Label" parent="Sliders"]
+visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_p2b02")
 text = "Sensitivity"
 
 [node name="SensitivitySlider" type="HSlider" parent="Sliders"]
+visible = false
 layout_mode = 2
+max_value = 1.0
+step = 0.001
 rounded = true
 scrollable = false
 
 [node name="HSeparator" type="HSeparator" parent="Sliders"]
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 25
 
 [node name="SoundLabel" type="Label" parent="Sliders"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_p2b02")
-text = "Sound"
+text = "Sound Effect"
 
 [node name="SoundSlider" type="HSlider" parent="Sliders"]
 layout_mode = 2
+max_value = 1.0
+step = 0.001
 
-[node name="HSeparator2" type="HSeparator" parent="Sliders"]
-visible = false
+[node name="HSeparator3" type="HSeparator" parent="Sliders"]
 layout_mode = 2
 theme_override_constants/separation = 25
 
 [node name="MusicLabel" type="Label" parent="Sliders"]
-visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_p2b02")
-text = "Music"
+text = "Music
+"
 
 [node name="MusicSlider" type="HSlider" parent="Sliders"]
-visible = false
 layout_mode = 2
+max_value = 1.0
+step = 0.001
+
+[node name="HSeparator4" type="HSeparator" parent="Sliders"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="NarratorVoiceLabel" type="Label" parent="Sliders"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_p2b02")
+text = "Narrator voice
+"
+
+[node name="NarratorVoiceSlider" type="HSlider" parent="Sliders"]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
 
 [node name="GoBackButton" type="Button" parent="."]
 layout_mode = 2
@@ -69,4 +91,8 @@ flat = true
 [connection signal="drag_ended" from="Sliders/SensitivitySlider" to="." method="_on_sensitivity_slider_drag_ended"]
 [connection signal="drag_ended" from="Sliders/SoundSlider" to="." method="_on_sound_slider_drag_ended"]
 [connection signal="mouse_entered" from="GoBackButton" to="." method="_on_go_back_button_mouse_entered"]
+[connection signal="value_changed" from="Sliders/SensitivitySlider" to="." method="_on_sensitivity_slider_value_changed"]
+[connection signal="value_changed" from="Sliders/SoundSlider" to="." method="_on_sound_slider_value_changed"]
+[connection signal="value_changed" from="Sliders/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="Sliders/NarratorVoiceSlider" to="." method="_on_narrator_voice_slider_value_changed"]
 [connection signal="pressed" from="GoBackButton" to="." method="_on_go_back_button_pressed"]
