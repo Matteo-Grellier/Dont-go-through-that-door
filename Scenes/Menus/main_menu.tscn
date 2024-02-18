@@ -1,14 +1,16 @@
-[gd_scene load_steps=29 format=3 uid="uid://df5w2tklw5n41"]
+[gd_scene load_steps=31 format=3 uid="uid://df5w2tklw5n41"]
 
 [ext_resource type="Script" path="res://Scripts/Menus/main_menu.gd" id="1_2ymh1"]
 [ext_resource type="PackedScene" uid="uid://dnn52v1igl1sx" path="res://Scenes/door.tscn" id="1_5nwwm"]
 [ext_resource type="Theme" uid="uid://cgmxss60dp2dp" path="res://Ressources/Themes/main_theme.tres" id="1_a268r"]
-[ext_resource type="Material" uid="uid://7i0d2s5gmi75" path="res://Ressources/Materials/toon_very_dark_material.tres" id="1_ndm2p"]
+[ext_resource type="Material" path="res://Ressources/Materials/toon_very_dark_material.tres" id="1_ndm2p"]
 [ext_resource type="Shader" path="res://Ressources/Shaders/sobelFilter.gdshader" id="2_ay65i"]
-[ext_resource type="Material" uid="uid://ms4tnbi530fk" path="res://Ressources/Materials/yellow_door.tres" id="4_mttjx"]
+[ext_resource type="Material" path="res://Ressources/Materials/yellow_door.tres" id="4_mttjx"]
 [ext_resource type="Texture2D" uid="uid://dsknee1pr8mv" path="res://Ressources/Images/logo-dgttd-white.png" id="5_xhtsu"]
 [ext_resource type="PackedScene" uid="uid://dxd8uroqvbmrv" path="res://Scenes/Menus/options.tscn" id="8_a4i26"]
 [ext_resource type="AudioStream" uid="uid://diuuibj5sye1f" path="res://Ressources/Audios/menu_music.mp3" id="9_hxssa"]
+[ext_resource type="AudioStream" uid="uid://b4jmuf5vrtsq5" path="res://Ressources/Audios/btn.wav" id="11_cgj3u"]
+[ext_resource type="AudioStream" uid="uid://d0xi3oklct0in" path="res://Ressources/Audios/Tap.mp3" id="11_r8t8m"]
 
 [sub_resource type="Animation" id="Animation_6drjx"]
 length = 0.001
@@ -448,7 +450,22 @@ volume_db = -2.0
 autoplay = true
 bus = &"Music"
 
+[node name="ClicSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_cgj3u")
+bus = &"Sound"
+
+[node name="TapSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_r8t8m")
+bus = &"Sound"
+
 [connection signal="go_back" from="Control/MainMenuContent/Options" to="." method="_on_options_go_back"]
+[connection signal="mouse_on_go_back" from="Control/MainMenuContent/Options" to="." method="_on_options_mouse_on_go_back"]
+[connection signal="focus_entered" from="Control/MainMenuContent/MenuButtons/StartGameButton" to="." method="_on_start_game_button_focus_entered"]
+[connection signal="mouse_entered" from="Control/MainMenuContent/MenuButtons/StartGameButton" to="." method="_on_start_game_button_mouse_entered"]
 [connection signal="pressed" from="Control/MainMenuContent/MenuButtons/StartGameButton" to="." method="_on_start_game_button_pressed"]
+[connection signal="focus_entered" from="Control/MainMenuContent/MenuButtons/OptionsButton" to="." method="_on_options_button_focus_entered"]
+[connection signal="mouse_entered" from="Control/MainMenuContent/MenuButtons/OptionsButton" to="." method="_on_options_button_mouse_entered"]
 [connection signal="pressed" from="Control/MainMenuContent/MenuButtons/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="focus_entered" from="Control/MainMenuContent/MenuButtons/QuitButton" to="." method="_on_quit_button_focus_entered"]
+[connection signal="mouse_entered" from="Control/MainMenuContent/MenuButtons/QuitButton" to="." method="_on_quit_button_mouse_entered"]
 [connection signal="pressed" from="Control/MainMenuContent/MenuButtons/QuitButton" to="." method="_on_quit_button_pressed"]

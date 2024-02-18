@@ -68,4 +68,5 @@ flat = true
 
 [connection signal="drag_ended" from="Sliders/SensitivitySlider" to="." method="_on_sensitivity_slider_drag_ended"]
 [connection signal="drag_ended" from="Sliders/SoundSlider" to="." method="_on_sound_slider_drag_ended"]
+[connection signal="mouse_entered" from="GoBackButton" to="." method="_on_go_back_button_mouse_entered"]
 [connection signal="pressed" from="GoBackButton" to="." method="_on_go_back_button_pressed"]

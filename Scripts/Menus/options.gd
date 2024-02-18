@@ -1,6 +1,7 @@
 extends VBoxContainer
 
 signal go_back
+signal mouse_on_go_back
 
 @onready var sensitivity_slider: HSlider = $Sliders/SensitivitySlider
 @onready var sound_slider: HSlider = $Sliders/SoundSlider
@@ -19,3 +20,7 @@ func _on_sound_slider_drag_ended(value_changed):
 func _on_sensitivity_slider_drag_ended(value_changed):
 	# Change the value of the mouse sensitivity
 	pass
+
+
+func _on_go_back_button_mouse_entered():
+	mouse_on_go_back.emit()

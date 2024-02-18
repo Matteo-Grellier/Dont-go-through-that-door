@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://bli3pnmylkvvr"]
+[gd_scene load_steps=7 format=3 uid="uid://bli3pnmylkvvr"]
 
 [ext_resource type="Theme" uid="uid://cgmxss60dp2dp" path="res://Ressources/Themes/main_theme.tres" id="1_lmjjk"]
 [ext_resource type="Script" path="res://Scripts/Menus/pause_menu.gd" id="2_aqo0u"]
 [ext_resource type="FontFile" uid="uid://qa4btte8wh7u" path="res://Ressources/Fonts/Lexend-Black.ttf" id="2_f1uuc"]
 [ext_resource type="PackedScene" uid="uid://dxd8uroqvbmrv" path="res://Scenes/Menus/options.tscn" id="4_27ox6"]
+[ext_resource type="AudioStream" uid="uid://d0xi3oklct0in" path="res://Ressources/Audios/Tap.mp3" id="5_jl62n"]
+[ext_resource type="AudioStream" uid="uid://b4jmuf5vrtsq5" path="res://Ressources/Audios/btn.wav" id="6_76yvi"]
 
 [node name="PauseMenu" type="Control"]
 process_mode = 3
@@ -91,7 +93,19 @@ layout_mode = 2
 text = "QUIT"
 flat = true
 
+[node name="TapSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_jl62n")
+bus = &"Sound"
+
+[node name="clic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_76yvi")
+bus = &"Sound"
+
 [connection signal="go_back" from="Options" to="." method="_on_options_go_back"]
+[connection signal="mouse_on_go_back" from="Options" to="." method="_on_options_mouse_on_go_back"]
+[connection signal="mouse_entered" from="PauseMenuButtons/ResumeButton" to="." method="_on_resume_button_mouse_entered"]
 [connection signal="pressed" from="PauseMenuButtons/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="mouse_entered" from="PauseMenuButtons/Options" to="." method="_on_options_mouse_entered"]
 [connection signal="pressed" from="PauseMenuButtons/Options" to="." method="_on_options_pressed"]
+[connection signal="mouse_entered" from="PauseMenuButtons/QuitButton" to="." method="_on_quit_button_mouse_entered"]
 [connection signal="pressed" from="PauseMenuButtons/QuitButton" to="." method="_on_quit_button_pressed"]
