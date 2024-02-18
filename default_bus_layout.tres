@@ -16,7 +16,7 @@ spread = 0.44
 dry = 0.8
 
 [resource]
-bus/1/name = &"MusicAndSound"
+bus/1/name = &"Music"
 bus/1/solo = false
 bus/1/mute = false
 bus/1/bypass_fx = false
@@ -34,3 +34,9 @@ bus/2/effect/1/effect = SubResource("AudioEffectHighPassFilter_t4rlu")
 bus/2/effect/1/enabled = true
 bus/2/effect/2/effect = SubResource("AudioEffectReverb_5tut1")
 bus/2/effect/2/enabled = true
+bus/3/name = &"Sound"
+bus/3/solo = false
+bus/3/mute = false
+bus/3/bypass_fx = false
+bus/3/volume_db = 0.0
+bus/3/send = &"Master"

@@ -49,4 +49,4 @@ skeleton = NodePath("../..")
 stream = ExtResource("5_asq15")
 volume_db = -20.0
 autoplay = true
-bus = &"MusicAndSound"
+bus = &"Music"
