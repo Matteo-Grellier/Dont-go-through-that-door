@@ -35,6 +35,8 @@ func _on_area_3d_body_entered(body):
 	($RightDoor as Door).is_closed_behind = false
 	($LeftDoor as Door).has_been_already_open = false
 	($RightDoor as Door).has_been_already_open = false
+	($LeftDoor as Door).is_opened = false
+	($RightDoor as Door).is_opened = false
 	
 	if speaker.is_already_played:
 		speaker.play_audio(3)

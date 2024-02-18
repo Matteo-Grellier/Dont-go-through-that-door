@@ -15,17 +15,22 @@ func _process(delta):
 
 # WARNING: This function is really important in Rooms Script
 func start_room():
+	($Light as NeonLight).swhitch_lights_on(2)
+	($Light2 as NeonLight).swhitch_lights_on(3)
+	($Light3 as NeonLight).swhitch_lights_on(4)
+	($Light4 as NeonLight).swhitch_lights_on(5)
+	($Light5 as NeonLight).swhitch_lights_on(6)
+	
+	await wait(2)
 	($SpotLight3D4 as SpotLight3D).light_energy = 1
 	($SpotLight3D3 as SpotLight3D).light_energy = 1
-	($Light as NeonLight).swhitch_lights_on(3)
-	($Light2 as NeonLight).swhitch_lights_on(4)
-	($Light3 as NeonLight).swhitch_lights_on(5)
-	($Light4 as NeonLight).swhitch_lights_on(6)
-	($Light5 as NeonLight).swhitch_lights_on(7)
+
 
 func trigger_sound():
 	speaker.play_audio(0)
 
+func wait(duration):  
+	await get_tree().create_timer(duration, false, false, true).timeout
 
 func _on_light_light_is_on():
 	if is_already_played:

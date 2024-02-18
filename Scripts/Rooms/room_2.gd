@@ -6,6 +6,8 @@ extends Node3D
 @onready var light_front2: NeonLight = $Light4
 @onready var speaker = $Speaker
 
+var is_already_played = false
+
 func _ready():
 	start_room()
 
@@ -17,8 +19,13 @@ func start_room():
 
 
 func _on_light_light_is_on():
+	
+	if is_already_played:
+		return
+	
 	await wait(1)
 	speaker.play_audio(0)
+	is_already_played = true
 
 
 func wait(duration):  

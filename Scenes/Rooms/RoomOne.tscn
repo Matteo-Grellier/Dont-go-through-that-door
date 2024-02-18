@@ -6,8 +6,8 @@
 [ext_resource type="Script" path="res://Scripts/RoomOne.gd" id="1_udxsx"]
 [ext_resource type="FontFile" uid="uid://nf4hj6b6g8di" path="res://Ressources/Fonts/Lexend-ExtraBold.ttf" id="2_inx3q"]
 [ext_resource type="Material" uid="uid://bdqe31xmn3pqy" path="res://Ressources/Materials/floor_mat.tres" id="3_0pl6j"]
-[ext_resource type="Material" path="res://Ressources/Materials/spawn_room_wall.tres" id="3_bfuwq"]
-[ext_resource type="AudioStream" uid="uid://b3fnpgpxx5ubt" path="res://Ressources/Audios/left_door.mp3" id="5_marmv"]
+[ext_resource type="Material" uid="uid://d1rhmi4070sgl" path="res://Ressources/Materials/spawn_room_wall.tres" id="3_bfuwq"]
+[ext_resource type="AudioStream" uid="uid://b4dpjc1k6knie" path="res://Ressources/Audios/Roomaudio/room1.mp3" id="5_88grp"]
 [ext_resource type="FontFile" uid="uid://c80nrjbxxi5nm" path="res://Ressources/Fonts/Tinos-Regular.ttf" id="9_q00qq"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_p6l8i"]
@@ -87,20 +87,20 @@ mesh = SubResource("BoxMesh_n6vxj")
 
 [node name="Speaker" parent="." instance=ExtResource("1_7aw8r")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -3, 3, -14.7031)
-audio_sources = Array[AudioStream]([ExtResource("5_marmv")])
-audio_subtitles = Array[String](["What ever you do, don't go through the left door."])
+audio_sources = Array[AudioStream]([ExtResource("5_88grp")])
+audio_subtitles = Array[String](["Well, it's exactly the same here. Don't go through the left door."])
 
 [node name="Door" parent="." instance=ExtResource("1_iwycq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -14.95)
 default_color = Color(0.976471, 0.878431, 0.815686, 1)
-whats_behind_the_door = "Room2"
+whats_behind_the_door = "DeathRoom"
 door_text = "Right door"
 is_good = true
 
 [node name="Door2" parent="." instance=ExtResource("1_iwycq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -14.95)
 default_color = Color(0.976471, 0.878431, 0.815686, 1)
-whats_behind_the_door = "DeathRoom"
+whats_behind_the_door = "Room2"
 door_text = "Left Door"
 
 [node name="Floor" type="StaticBody3D" parent="."]

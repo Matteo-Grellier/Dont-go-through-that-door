@@ -16,7 +16,7 @@ func _process(delta):
 func start_room():
 	($SpotLight3D4 as SpotLight3D).light_energy = 1
 	($SpotLight3D3 as SpotLight3D).light_energy = 1
-	($Light as NeonLight).swhitch_lights_on(6)
+	($Light as NeonLight).swhitch_lights_on(3)
 
 func trigger_sound():
 	speaker.play_audio(0)

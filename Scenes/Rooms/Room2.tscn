@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dqs73dcu3a4qv" path="res://Scenes/light.tscn" id="2_871fr"]
 [ext_resource type="Material" uid="uid://bdqe31xmn3pqy" path="res://Ressources/Materials/floor_mat.tres" id="2_p2yn7"]
 [ext_resource type="PackedScene" uid="uid://b020vwlof58o8" path="res://Scenes/speaker.tscn" id="5_6h00m"]
-[ext_resource type="Material" path="res://Ressources/Materials/spawn_room_wall.tres" id="6_kt6b3"]
+[ext_resource type="Material" uid="uid://d1rhmi4070sgl" path="res://Ressources/Materials/spawn_room_wall.tres" id="6_kt6b3"]
 [ext_resource type="AudioStream" uid="uid://chb35bkygxkud" path="res://Ressources/Audios/Roomaudio/room2.mp3" id="6_pq5v8"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_8gc1t"]

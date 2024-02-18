@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://rl5dygj8mqvy"]
 
-[ext_resource type="Material" path="res://Ressources/Materials/spawn_room_wall.tres" id="1_abvt1"]
+[ext_resource type="Material" uid="uid://d1rhmi4070sgl" path="res://Ressources/Materials/spawn_room_wall.tres" id="1_abvt1"]
 [ext_resource type="Script" path="res://Scripts/Rooms/spawn_room.gd" id="1_le73g"]
 [ext_resource type="PackedScene" uid="uid://dnn52v1igl1sx" path="res://Scenes/door.tscn" id="2_ieb7m"]
 [ext_resource type="Material" uid="uid://bdqe31xmn3pqy" path="res://Ressources/Materials/floor_mat.tres" id="3_2i680"]

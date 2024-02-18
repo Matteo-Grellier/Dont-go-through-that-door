@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://vwdod76urhng" path="res://Ressources/Audios/Roomaudio/room4.mp3" id="5_ittx0"]
 [ext_resource type="PackedScene" uid="uid://dnn52v1igl1sx" path="res://Scenes/door.tscn" id="6_f0fk6"]
 [ext_resource type="Material" uid="uid://bdqe31xmn3pqy" path="res://Ressources/Materials/floor_mat.tres" id="7_s0ljf"]
-[ext_resource type="Material" path="res://Ressources/Materials/spawn_room_wall.tres" id="8_mrbxy"]
+[ext_resource type="Material" uid="uid://d1rhmi4070sgl" path="res://Ressources/Materials/spawn_room_wall.tres" id="8_mrbxy"]
 [ext_resource type="FontFile" uid="uid://c80nrjbxxi5nm" path="res://Ressources/Fonts/Tinos-Regular.ttf" id="9_bffdq"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_p6l8i"]
@@ -87,10 +87,12 @@ transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 3.8, -33)
 
 [node name="SpotLight3D3" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 4.01954, 4.48226, -39.7514)
+light_energy = 0.0
 spot_angle_attenuation = 3.86
 
 [node name="SpotLight3D4" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -3.98046, 4.48226, -39.7514)
+light_energy = 0.0
 spot_angle_attenuation = 3.86
 
 [node name="Ceiling" type="MeshInstance3D" parent="."]
