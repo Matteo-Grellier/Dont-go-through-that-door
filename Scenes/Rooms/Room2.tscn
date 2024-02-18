@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://dqs73dcu3a4qv" path="res://Scenes/light.tscn" id="2_871fr"]
 [ext_resource type="Material" uid="uid://bdqe31xmn3pqy" path="res://Ressources/Materials/floor_mat.tres" id="2_p2yn7"]
 [ext_resource type="PackedScene" uid="uid://b020vwlof58o8" path="res://Scenes/speaker.tscn" id="5_6h00m"]
-[ext_resource type="AudioStream" uid="uid://bct80sff6for" path="res://Ressources/Audios/duck.mp3" id="5_i7ssl"]
 [ext_resource type="Material" path="res://Ressources/Materials/spawn_room_wall.tres" id="6_kt6b3"]
+[ext_resource type="AudioStream" uid="uid://chb35bkygxkud" path="res://Ressources/Audios/Roomaudio/room2.mp3" id="6_pq5v8"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_8gc1t"]
 material = ExtResource("2_p2yn7")
@@ -62,19 +62,6 @@ transform = Transform3D(1.42857, 0, 0, 0, 1.42857, 0, 0, 0, 1.42857, 2, 2.14, 0)
 radius = 0.05
 height = 3.0
 
-[node name="Light2" parent="." instance=ExtResource("2_871fr")]
-transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0.742481, 3.76653, -3.98347)
-
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Light2"]
-transform = Transform3D(1.42857, 0, 0, 0, 1.42857, 0, 0, 0, 1.42857, -2, 2.14, 0)
-radius = 0.05
-height = 3.0
-
-[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Light2"]
-transform = Transform3D(1.42857, 0, 0, 0, 1.42857, 0, 0, 0, 1.42857, 2, 2.14, 0)
-radius = 0.05
-height = 3.0
-
 [node name="Light3" parent="." instance=ExtResource("2_871fr")]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 8.74248, 3.76653, -10.9835)
 
@@ -88,22 +75,9 @@ transform = Transform3D(1.42857, 0, 0, 0, 1.42857, 0, 0, 0, 1.42857, 2, 2.14, 0)
 radius = 0.05
 height = 3.0
 
-[node name="Light4" parent="." instance=ExtResource("2_871fr")]
-transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 8.74248, 3.76653, -3.98347)
-
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Light4"]
-transform = Transform3D(1.42857, 0, 0, 0, 1.42857, 0, 0, 0, 1.42857, -2, 2.14, 0)
-radius = 0.05
-height = 3.0
-
-[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Light4"]
-transform = Transform3D(1.42857, 0, 0, 0, 1.42857, 0, 0, 0, 1.42857, 2, 2.14, 0)
-radius = 0.05
-height = 3.0
-
 [node name="Speaker" parent="." instance=ExtResource("5_6h00m")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 4.65557, 3, -14.7031)
-audio_sources = Array[AudioStream]([ExtResource("5_i7ssl")])
+audio_sources = Array[AudioStream]([ExtResource("6_pq5v8")])
 audio_subtitles = Array[String](["The door you should go through is on the left of the one that is on the right of the one that on the left of the red one"])
 
 [node name="Ceiling2" type="MeshInstance3D" parent="."]
@@ -150,5 +124,3 @@ operation = 2
 size = Vector3(1.45, 2.7, 0.3)
 
 [connection signal="light_is_on" from="Light" to="." method="_on_light_light_is_on"]
-[connection signal="light_is_on" from="Light2" to="." method="_on_light_2_light_is_on"]
-[connection signal="light_is_on" from="Light4" to="." method="_on_light_2_light_is_on"]
