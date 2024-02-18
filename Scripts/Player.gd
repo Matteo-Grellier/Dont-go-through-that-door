@@ -8,6 +8,7 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var sensitivity: float = 0.001
 
 @onready var neck:Node3D = $Neck
+@onready var walk_sound: AudioStreamPlayer = $walk
 @onready var camera:Camera3D = $Neck/Camera3D
 
 func _ready():
@@ -37,8 +38,12 @@ func _physics_process(delta: float) -> void:
 	if direction:
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
+		if !walk_sound.playing:
+			walk_sound.play()
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		velocity.z = move_toward(velocity.z, 0, speed)
+		if walk_sound.playing:
+			walk_sound.stop()
 
 	move_and_slide()

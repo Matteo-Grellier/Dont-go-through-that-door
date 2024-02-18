@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://Scripts/Rooms/room_2.gd" id="1_6vj1k"]
 [ext_resource type="PackedScene" uid="uid://dnn52v1igl1sx" path="res://Scenes/door.tscn" id="1_x5xyk"]
 [ext_resource type="PackedScene" uid="uid://dqs73dcu3a4qv" path="res://Scenes/light.tscn" id="2_871fr"]
-[ext_resource type="Material" path="res://Ressources/Materials/floor_mat.tres" id="2_p2yn7"]
-[ext_resource type="PackedScene" path="res://Scenes/speaker.tscn" id="5_6h00m"]
+[ext_resource type="Material" uid="uid://bdqe31xmn3pqy" path="res://Ressources/Materials/floor_mat.tres" id="2_p2yn7"]
+[ext_resource type="PackedScene" uid="uid://b020vwlof58o8" path="res://Scenes/speaker.tscn" id="5_6h00m"]
 [ext_resource type="AudioStream" uid="uid://bct80sff6for" path="res://Ressources/Audios/duck.mp3" id="5_i7ssl"]
 [ext_resource type="Material" path="res://Ressources/Materials/spawn_room_wall.tres" id="6_kt6b3"]
 
@@ -48,7 +48,6 @@ transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 0.655566
 rotation_edit_mode = 1
 default_color = Color(0.215686, 0.490196, 0.964706, 1)
 whats_behind_the_door = "DeathRoom"
-is_good = false
 
 [node name="Light" parent="." instance=ExtResource("2_871fr")]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0.742481, 3.76653, -10.9835)
