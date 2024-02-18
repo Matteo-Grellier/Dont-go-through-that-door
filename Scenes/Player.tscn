@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://13lmgnknxpgw"]
+[gd_scene load_steps=11 format=3 uid="uid://13lmgnknxpgw"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_kg52k"]
-[ext_resource type="PackedScene" uid="uid://d11bx7rtdta5u" path="res://Scenes/interactor.tscn" id="2_pnebu"]
+[ext_resource type="PackedScene" path="res://Scenes/interactor.tscn" id="2_pnebu"]
 [ext_resource type="Shader" path="res://Ressources/Shaders/sobelFilter.gdshader" id="3_gse5d"]
 [ext_resource type="PackedScene" uid="uid://bli3pnmylkvvr" path="res://Scenes/Menus/pause_menu.tscn" id="4_jq78y"]
 [ext_resource type="AudioStream" uid="uid://cl5k1i5up0wcg" path="res://Ressources/Audios/game_music.mp3" id="5_asq15"]
+[ext_resource type="AudioStream" uid="uid://bmcncgrhsvlut" path="res://Ressources/Audios/walk.mp3" id="6_6qofd"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_kkgcd"]
 
@@ -50,3 +51,8 @@ stream = ExtResource("5_asq15")
 volume_db = -20.0
 autoplay = true
 bus = &"Music"
+
+[node name="walk" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_6qofd")
+pitch_scale = 0.8
+bus = &"Sound"
