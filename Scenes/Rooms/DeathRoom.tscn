@@ -1,106 +1,71 @@
-[gd_scene load_steps=8 format=3 uid="uid://b6ovcgeb3fr6c"]
+[gd_scene load_steps=7 format=3 uid="uid://b6ovcgeb3fr6c"]
 
 [ext_resource type="Script" path="res://Scripts/death_room.gd" id="1_ar5ka"]
 [ext_resource type="Material" uid="uid://dacbej5ljrjns" path="res://Ressources/Materials/very_dark_material.tres" id="1_ndk5a"]
-[ext_resource type="Material" path="res://Ressources/Materials/floor_mat.tres" id="2_ym6wy"]
+[ext_resource type="Material" uid="uid://bdqe31xmn3pqy" path="res://Ressources/Materials/floor_mat.tres" id="2_ym6wy"]
 [ext_resource type="PackedScene" uid="uid://dnn52v1igl1sx" path="res://Scenes/door.tscn" id="3_qc0oo"]
+[ext_resource type="AudioStream" uid="uid://d2b0y844iimfq" path="res://Ressources/Audios/MortDePeur.mp3" id="5_atpep"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2navy"]
-size = Vector3(15, 1, 30)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_i52lu"]
-size = Vector3(1, 15, 30)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_xdrpy"]
-size = Vector3(1, 15, 18)
+size = Vector3(5, 0.1, 10)
 
 [node name="DeathRoom" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.217438, 0.488058, 0)
 script = ExtResource("1_ar5ka")
 
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(0.993468, 0, -1.05885e-14, 0, 0.993468, 0, 1.05885e-14, 0, 0.993468, -0.0986999, 3.8748, -5.00726)
+material_override = ExtResource("1_ndk5a")
+size = Vector3(5, 0.1, 10)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 1.06581e-14, 4.65881e-22, 0, -4.37114e-08, 1, 1.06581e-14, -1, -4.37114e-08, -0.0986999, 3.8748, -5.00726)
+light_energy = 0.0
+spot_range = 22.5379
+spot_angle = 13.4373
+
+[node name="CSGCombiner3D2" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -0.0872787)
+size = Vector3(5, 4, 0.1)
+material = ExtResource("1_ndk5a")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -9.91497)
+size = Vector3(5, 4, 0.1)
+material = ExtResource("1_ndk5a")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D2"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.4414, 2, -5.07166)
+size = Vector3(10, 4, 0.1)
+material = ExtResource("1_ndk5a")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D2"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.5586, 2, -5.07166)
+size = Vector3(10, 4, 0.1)
+material = ExtResource("1_ndk5a")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000549316, 1.34876, 0)
+operation = 2
+size = Vector3(1.418, 2.69, 0.3)
+
 [node name="Ground" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, -0.278861, -0.492151, -15.7486)
+transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 0, 0, -5)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
 shape = SubResource("BoxShape3D_2navy")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Ground"]
-transform = Transform3D(0.993258, 0, 0, 0, 0.993258, 0, 0, 0, 0.993258, 0, 0, 0.381202)
+transform = Transform3D(0.993258, 0, 0, 0, 0.993258, 0, 0, 0, 0.993258, 0, 0, 0)
 material_override = ExtResource("2_ym6wy")
-size = Vector3(15, 1, 30.7676)
-
-[node name="Roof" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, -0.278861, 13.4337, -15.7486)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Roof"]
-shape = SubResource("BoxShape3D_2navy")
-
-[node name="CSGBox3D" type="CSGBox3D" parent="Roof"]
-transform = Transform3D(0.993468, 0, 0, 0, 0.993468, 0, 0, 0, 0.993468, -0.0778573, 0, 0.318159)
-material_override = ExtResource("1_ndk5a")
-size = Vector3(15.7593, 1, 30.6405)
-
-[node name="LeftWall" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, -8.93733, 0.645706, -15.7486)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="LeftWall"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.713881, 5.73481, 0.0607376)
-shape = SubResource("BoxShape3D_i52lu")
-
-[node name="CSGBox3D" type="CSGBox3D" parent="LeftWall"]
-transform = Transform3D(0.993468, 0, 0, 0, 0.993468, 0, 0, 0, 0.993468, 0.607068, 5.74843, 0.445456)
-material_override = ExtResource("1_ndk5a")
-size = Vector3(1, 15, 30.8241)
-
-[node name="RightWall" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 6.97328, 0.645706, -15.7486)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RightWall"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.713881, 5.73481, 0.0607376)
-shape = SubResource("BoxShape3D_i52lu")
-
-[node name="CSGBox3D" type="CSGBox3D" parent="RightWall"]
-transform = Transform3D(0.993468, 0, 0, 0, 0.993468, 0, 0, 0, 0.993468, 0.685383, 5.82574, 0.370549)
-material_override = ExtResource("1_ndk5a")
-size = Vector3(1, 15, 30.746)
-
-[node name="BackWall" type="StaticBody3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.084712, 0.685516, -29.9702)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="BackWall"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.713881, 5.73481, 0.0607377)
-shape = SubResource("BoxShape3D_xdrpy")
-
-[node name="CSGBox3D" type="CSGBox3D" parent="BackWall"]
-transform = Transform3D(0.993468, 0, 0, 0, 0.993468, 0, 0, 0, 0.993468, 0.685383, 5.82574, 0)
-material_override = ExtResource("1_ndk5a")
-size = Vector3(1, 15, 18)
-
-[node name="FrontWall" type="StaticBody3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.0847101, 0.685516, 0.213547)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="FrontWall"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.713881, 5.73481, 0.0607377)
-shape = SubResource("BoxShape3D_xdrpy")
-
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="FrontWall"]
-
-[node name="CSGBox3D" type="CSGBox3D" parent="FrontWall/CSGCombiner3D"]
-transform = Transform3D(0.993468, 0, 0, 0, 0.993468, 0, 0, 0, 0.993468, 0.308952, 5.82574, 0)
-material_override = ExtResource("1_ndk5a")
-size = Vector3(0.242188, 15, 18)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="FrontWall/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.299239, 0.692598, 0.00594181)
-operation = 2
-size = Vector3(1.06396, 2.741, 1.45823)
-
-[node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 1.06581e-14, 4.65882e-22, 0, -4.37114e-08, 1, 1.06581e-14, -1, -4.37114e-08, -0.107192, 13.8088, -15.5744)
-light_energy = 0.0
-spot_range = 22.5379
-spot_angle = 13.4373
+size = Vector3(5, 0.1, 10)
 
 [node name="Door" parent="." instance=ExtResource("3_qc0oo")]
 transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 2.09339, 0.152482, 0.597027)
 visible = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_atpep")
+volume_db = -3.0
