@@ -1,6 +1,7 @@
 extends VBoxContainer
 
 signal go_back
+signal mouse_on_go_back
 
 @onready var sensitivity_slider: HSlider = $Sliders/SensitivitySlider
 @onready var sound_slider: HSlider = $Sliders/SoundSlider
@@ -19,7 +20,9 @@ func _ready():
 func _on_go_back_button_pressed():
 	go_back.emit()
 
-
+func _on_go_back_button_mouse_entered():
+	mouse_on_go_back.emit()
+  
 func _on_music_slider_value_changed(value):
 	var music_bus = AudioServer.get_bus_index("Music")
 	AudioServer.set_bus_volume_db(music_bus, linear_to_db(value))  

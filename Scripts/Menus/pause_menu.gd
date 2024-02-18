@@ -5,6 +5,9 @@ extends Control
 @onready var pause_menu_buttons: VBoxContainer = $PauseMenuButtons
 @onready var game_manager: GameManager = get_node("/root/GameManager")
 
+@onready var tap_sound: AudioStreamPlayer = $TapSound
+@onready var clic_sound: AudioStreamPlayer = $clic
+
 var is_pause_menu_enabled = false 
 
 # Called when the node enters the scene tree for the first time.
@@ -31,24 +34,42 @@ func change_menu_state():
 		get_tree().paused = false
 		visible = false
 
+
 func _on_resume_button_pressed():
+	clic_sound.play()
 	change_menu_state()
 
 
 func _on_options_pressed():
+	clic_sound.play()
 	option_menu.visible = true
 	pause_menu_buttons.visible = false
 
 
 func _on_quit_button_pressed():
+	clic_sound.play()
 	game_manager.set("not_even_in_game_scene", false)
 	change_menu_state()
 	get_tree().change_scene_to_packed(main_menu_scene)
-	
 
 
 func _on_options_go_back():
+	clic_sound.play()
 	option_menu.visible = false
 	pause_menu_buttons.visible = true
 
 
+
+
+func _on_resume_button_mouse_entered():
+	tap_sound.play()
+
+func _on_options_mouse_entered():
+	tap_sound.play()
+
+func _on_quit_button_mouse_entered():
+	tap_sound.play()
+
+
+func _on_options_mouse_on_go_back():
+	tap_sound.play()

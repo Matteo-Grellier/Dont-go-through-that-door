@@ -89,6 +89,8 @@ text = "⬅ GO BACK"
 flat = true
 
 [connection signal="drag_ended" from="Sliders/SensitivitySlider" to="." method="_on_sensitivity_slider_drag_ended"]
+[connection signal="drag_ended" from="Sliders/SoundSlider" to="." method="_on_sound_slider_drag_ended"]
+[connection signal="mouse_entered" from="GoBackButton" to="." method="_on_go_back_button_mouse_entered"]
 [connection signal="value_changed" from="Sliders/SensitivitySlider" to="." method="_on_sensitivity_slider_value_changed"]
 [connection signal="value_changed" from="Sliders/SoundSlider" to="." method="_on_sound_slider_value_changed"]
 [connection signal="value_changed" from="Sliders/MusicSlider" to="." method="_on_music_slider_value_changed"]
