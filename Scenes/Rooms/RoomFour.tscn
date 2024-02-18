@@ -4,7 +4,7 @@
 [ext_resource type="FontFile" uid="uid://nf4hj6b6g8di" path="res://Ressources/Fonts/Lexend-ExtraBold.ttf" id="2_d87p5"]
 [ext_resource type="PackedScene" uid="uid://dqs73dcu3a4qv" path="res://Scenes/light.tscn" id="3_58lj0"]
 [ext_resource type="PackedScene" uid="uid://b020vwlof58o8" path="res://Scenes/speaker.tscn" id="4_pcpli"]
-[ext_resource type="AudioStream" uid="uid://bct80sff6for" path="res://Ressources/Audios/duck.mp3" id="5_4m3cr"]
+[ext_resource type="AudioStream" uid="uid://vwdod76urhng" path="res://Ressources/Audios/Roomaudio/room4.mp3" id="5_ittx0"]
 [ext_resource type="PackedScene" uid="uid://dnn52v1igl1sx" path="res://Scenes/door.tscn" id="6_f0fk6"]
 [ext_resource type="Material" uid="uid://bdqe31xmn3pqy" path="res://Ressources/Materials/floor_mat.tres" id="7_s0ljf"]
 [ext_resource type="Material" path="res://Ressources/Materials/spawn_room_wall.tres" id="8_mrbxy"]
@@ -99,8 +99,8 @@ mesh = SubResource("BoxMesh_n6vxj")
 
 [node name="Speaker" parent="." instance=ExtResource("4_pcpli")]
 transform = Transform3D(-1.74846e-08, 0, -0.4, 0, 0.4, 0, 0.4, 0, -1.74846e-08, 7.2, 2.7, -14.703)
-audio_sources = Array[AudioStream]([ExtResource("5_4m3cr")])
-audio_subtitles = Array[String](["Listen to me, don't find the key"])
+audio_sources = Array[AudioStream]([ExtResource("5_ittx0")])
+audio_subtitles = Array[String](["Oh ! This room, is very easy. Don't find the key."])
 
 [node name="Door" parent="." instance=ExtResource("6_f0fk6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -39.95)
@@ -111,7 +111,7 @@ is_good = true
 [node name="Door2" parent="." instance=ExtResource("6_f0fk6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -39.95)
 default_color = Color(0.976471, 0.878431, 0.815686, 1)
-whats_behind_the_door = "RoomOne"
+whats_behind_the_door = "FinalRoom"
 door_text = "Key"
 is_good = true
 

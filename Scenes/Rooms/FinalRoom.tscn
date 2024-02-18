@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://c1salcjsi01ta" path="res://Ressources/Audios/lastroom.mp3" id="5_qyx4x"]
 [ext_resource type="PackedScene" uid="uid://dnn52v1igl1sx" path="res://Scenes/door.tscn" id="6_80gs1"]
 [ext_resource type="Material" uid="uid://bdqe31xmn3pqy" path="res://Ressources/Materials/floor_mat.tres" id="7_v4uoc"]
-[ext_resource type="Material" uid="uid://d1rhmi4070sgl" path="res://Ressources/Materials/spawn_room_wall.tres" id="8_0ro3d"]
+[ext_resource type="Material" path="res://Ressources/Materials/spawn_room_wall.tres" id="8_0ro3d"]
 [ext_resource type="FontFile" uid="uid://c80nrjbxxi5nm" path="res://Ressources/Fonts/Tinos-Regular.ttf" id="9_6ggcl"]
 [ext_resource type="AudioStream" uid="uid://y4htba0xr4gl" path="res://Ressources/Audios/ending-music.mp3" id="10_x36tv"]
 

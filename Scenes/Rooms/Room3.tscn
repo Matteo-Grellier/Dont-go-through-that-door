@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://dnn52v1igl1sx" path="res://Scenes/door.tscn" id="1_4v3xv"]
 [ext_resource type="Script" path="res://Scripts/Rooms/Room3.gd" id="1_v71a7"]
-[ext_resource type="Material" path="res://Ressources/Materials/floor_mat.tres" id="3_p02wm"]
-[ext_resource type="Material" uid="uid://d1rhmi4070sgl" path="res://Ressources/Materials/spawn_room_wall.tres" id="4_qbtah"]
+[ext_resource type="Material" uid="uid://bdqe31xmn3pqy" path="res://Ressources/Materials/floor_mat.tres" id="3_p02wm"]
+[ext_resource type="Material" path="res://Ressources/Materials/spawn_room_wall.tres" id="4_qbtah"]
 [ext_resource type="PackedScene" uid="uid://dqs73dcu3a4qv" path="res://Scenes/light.tscn" id="5_2yae0"]
 [ext_resource type="PackedScene" uid="uid://b020vwlof58o8" path="res://Scenes/speaker.tscn" id="6_23lal"]
 [ext_resource type="AudioStream" uid="uid://bg68npvd0a8is" path="res://Ressources/Audios/room3.mp3" id="7_koboa"]
@@ -19,7 +19,8 @@ script = ExtResource("1_v71a7")
 
 [node name="Door" parent="." instance=ExtResource("1_4v3xv")]
 transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 0.010128, 0, -47.007)
-whats_behind_the_door = "Room4"
+whats_behind_the_door = "RoomFour"
+is_good = true
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 35.0
@@ -112,17 +113,17 @@ transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0.217188, 3.57206, -41.
 [node name="Speaker" parent="." instance=ExtResource("6_23lal")]
 transform = Transform3D(0.275204, -0.0869824, -0.276942, -0.0329641, 0.369786, -0.1489, 0.288403, 0.125268, 0.247249, 7.20982, 3.00898, -46.805)
 audio_sources = Array[AudioStream]([ExtResource("7_koboa")])
-audio_subtitles = Array[String](["Listen to me, don't find the key"])
+audio_subtitles = Array[String]([""])
 
 [node name="Speaker3" parent="." instance=ExtResource("6_23lal")]
 transform = Transform3D(-1.74846e-08, 0, -0.4, 0, 0.4, 0, 0.4, 0, -1.74846e-08, 7.20982, 3.00898, -19.805)
 audio_sources = Array[AudioStream]([ExtResource("7_koboa")])
-audio_subtitles = Array[String](["Listen to me, don't find the key"])
+audio_subtitles = Array[String](["Just, go through the door"])
 
 [node name="Speaker2" parent="." instance=ExtResource("6_23lal")]
 transform = Transform3D(-0.275204, 0.0869824, 0.276942, -0.0329641, 0.369786, -0.1489, -0.288403, -0.125268, -0.247249, -7.27076, 3.00898, -0.419408)
 audio_sources = Array[AudioStream]([ExtResource("7_koboa")])
-audio_subtitles = Array[String](["Listen to me, don't find the key"])
+audio_subtitles = Array[String]([""])
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="light_is_on" from="Light10" to="." method="_on_light_10_light_is_on"]
