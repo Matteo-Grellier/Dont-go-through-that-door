@@ -59,7 +59,7 @@ func _on_closed_behind():
 
 func unload_last_room():
 	if wait_two_rooms == 2:
-		array_of_rooms_to_delete[1].queue_free()
+		array_of_rooms_to_delete[0].queue_free()
 		array_of_rooms_to_delete.pop_at(0)
 	else :
 		wait_two_rooms += 1

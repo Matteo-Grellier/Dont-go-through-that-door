@@ -12,7 +12,7 @@ var sensitivity: float = 0.001
 
 func _ready():
 	var tween = create_tween()
-	tween.parallel().tween_property($AudioStreamPlayer, "volume_db", -10, 3)
+	tween.parallel().tween_property($AudioStreamPlayer, "volume_db", 0, 3)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _unhandled_input(event: InputEvent) -> void:
