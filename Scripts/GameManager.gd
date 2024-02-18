@@ -64,6 +64,16 @@ func unload_last_room():
 	else :
 		wait_two_rooms += 1
 
+func unload_all_rooms():	
+	for x in array_of_rooms_to_delete:
+		x.queue_free()
+	
+	array_of_rooms_to_delete.clear()
+	wait_two_rooms = 0
+	
+	room_behind_the_door = "SpawnRoom"
+	get_all_doors_in_room()
+
 func cut_music():
 	var tween = create_tween()
 	tween.parallel().tween_property(player.get_node("AudioStreamPlayer"), "volume_db", 0, 3)

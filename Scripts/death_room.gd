@@ -14,6 +14,9 @@ func start_room():
 	await wait(9)
 	# Respawn
 	game_manager.player.position = Vector3(0, 2, 0)
+	remove_child(monster_instance)
+	spot_light.light_energy = 0
+	game_manager.unload_all_rooms()
 
 func wait(duration):  
 	await get_tree().create_timer(duration, false, false, true).timeout

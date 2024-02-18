@@ -11,7 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://tb306aw6eats" path="res://Ressources/Audios/lets_try_again.mp3" id="8_0vcro"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_4yt2c"]
-radius = 2.369
+radius = 1.5
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_udoeg"]
 material = ExtResource("3_2i680")
