@@ -75,6 +75,32 @@ transform = Transform3D(1.42857, 0, 0, 0, 1.42857, 0, 0, 0, 1.42857, 2, 2.14, 0)
 radius = 0.05
 height = 3.0
 
+[node name="Light2" parent="." instance=ExtResource("2_871fr")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0.742481, 3.76653, -4.9835)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Light2"]
+transform = Transform3D(1.42857, 0, 0, 0, 1.42857, 0, 0, 0, 1.42857, -2, 2.14, 0)
+radius = 0.05
+height = 3.0
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Light2"]
+transform = Transform3D(1.42857, 0, 0, 0, 1.42857, 0, 0, 0, 1.42857, 2, 2.14, 0)
+radius = 0.05
+height = 3.0
+
+[node name="Light4" parent="." instance=ExtResource("2_871fr")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 8.74248, 3.76653, -4.9835)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Light4"]
+transform = Transform3D(1.42857, 0, 0, 0, 1.42857, 0, 0, 0, 1.42857, -2, 2.14, 0)
+radius = 0.05
+height = 3.0
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Light4"]
+transform = Transform3D(1.42857, 0, 0, 0, 1.42857, 0, 0, 0, 1.42857, 2, 2.14, 0)
+radius = 0.05
+height = 3.0
+
 [node name="Speaker" parent="." instance=ExtResource("5_6h00m")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 4.65557, 3, -14.7031)
 audio_sources = Array[AudioStream]([ExtResource("6_pq5v8")])
