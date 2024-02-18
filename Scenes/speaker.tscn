@@ -171,6 +171,7 @@ mesh = SubResource("ArrayMesh_g83fa")
 skeleton = NodePath("")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+bus = &"Narrator"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

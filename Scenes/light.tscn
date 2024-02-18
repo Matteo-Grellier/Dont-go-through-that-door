@@ -52,4 +52,4 @@ volume_db = -10.0
 pitch_scale = 0.8
 max_distance = 10.0
 max_polyphony = 4
-bus = &"MusicAndSound"
+bus = &"Sound"

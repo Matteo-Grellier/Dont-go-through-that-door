@@ -237,12 +237,12 @@ shape = SubResource("BoxShape3D_wa7rk")
 stream = ExtResource("3_lqeku")
 pitch_scale = 0.8
 max_distance = 10.0
-bus = &"MusicAndSound"
+bus = &"Sound"
 
 [node name="AudioClose" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("4_peid3")
 pitch_scale = 0.8
 max_distance = 10.0
-bus = &"MusicAndSound"
+bus = &"Sound"
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
